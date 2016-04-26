@@ -662,6 +662,9 @@ nav a i {
 nav a:hover span {
   max-width: 1000px;
 }
+nav a.active {
+  color: #6d6d6d;
+}
 #download {
   position: relative;
   height: 500px;
