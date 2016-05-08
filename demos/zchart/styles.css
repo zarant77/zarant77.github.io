@@ -1,6 +1,11 @@
-#main {
+.container {
     width: 1600px;
     margin: auto;
+    font-family: sans-serif;
+}
+.zchart {
+    outline: 1px solid #000000;
+    margin: 20px 0 0 0;
 }
 
 .zchart {
