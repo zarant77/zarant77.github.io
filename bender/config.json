@@ -1,0 +1,18 @@
+{
+  "googleAPI": {
+    "id": "009741287909610820457:kgn1wetx_au",
+    "key": "AIzaSyDWVN1Pht2aXW_vPqYGlc-d47GPZQD0jCs"
+  },
+  "bender": {
+    "songs": [
+      {
+        "src": "http://www.gotfuturama.com/Multimedia/MP3Sounds/froggy.mp3",
+        "time": 12
+      },
+      {
+        "src": "http://www.gotfuturama.com/Multimedia/MP3Sounds/blasting%20all%20the%20humans.mp3",
+        "time": 26
+      }
+    ]
+  }
+}
