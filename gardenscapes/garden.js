@@ -110,7 +110,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _this.field.init(_this.tutorial);
 	
 	    new _control2.default(container, _this.config, function (col, row, col2, row2) {
-	      _this.field.onClick(col, row, col2, row2);
+	      _this.field.onMove(col, row, col2, row2);
 	    });
 	
 	    container.style.position = 'relative';
@@ -138,6 +138,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	/**
+	 * Loader for resources.
+	 * Used for loading config and sprite.
+	 */
 	var Loader = function () {
 	  function Loader() {
 	    _classCallCheck(this, Loader);
@@ -145,6 +149,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  _createClass(Loader, null, [{
 	    key: 'loadConfig',
+	
+	    /**
+	     * Load config file.
+	     * @param filename
+	     * @returns {Promise}
+	     */
 	    value: function loadConfig(filename) {
 	      var defaultConfig = {
 	        tileWidth: 120,
@@ -180,6 +190,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        xobj.send();
 	      });
 	    }
+	
+	    /**
+	     * Load image for sprite
+	     * @param src - Filename or Base64 source
+	     * @returns {Promise}
+	     */
+	
 	  }, {
 	    key: 'loadImage',
 	    value: function loadImage(src) {
@@ -212,12 +229,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	/**
+	 * Draw background.
+	 */
 	var Background = function () {
 	  function Background(domParent, config, spriteImage) {
 	    _classCallCheck(this, Background);
 	
 	    this.config = config;
 	    this.spriteImage = spriteImage;
+	
+	    // Init position of tiles in sprite file
 	    this.tiles = {
 	      terrain: [0, 240],
 	      grass: [120, 240],
@@ -245,6 +267,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function init() {
 	      this.render();
 	    }
+	
+	    /**
+	     * Draw one tile.
+	     * @param col
+	     * @param row
+	     * @param tileName
+	     * @param padding
+	     */
+	
 	  }, {
 	    key: 'drawTile',
 	    value: function drawTile(col, row, tileName) {
@@ -254,6 +285,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      this.ctx.drawImage(this.spriteImage, tilePos[0], tilePos[1], this.config.tileWidth, this.config.tileHeight, col * this.config.tileWidth + padding, row * this.config.tileHeight + padding, this.config.tileWidth, this.config.tileHeight);
 	    }
+	
+	    /**
+	     * Render background.
+	     */
+	
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -292,13 +328,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	/**
+	 * Draw tutorial
+	 */
 	var Tutorial = function () {
 	  function Tutorial(domParent, config, spriteImage) {
 	    var _this = this;
 	
 	    _classCallCheck(this, Tutorial);
 	
-	    this.domParent = domParent;
 	    this.config = config;
 	    this.spriteImage = spriteImage;
 	    this.hint = null;
@@ -328,9 +366,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, false);
 	  }
 	
+	  /**
+	   * Action handler (click, drag or swipe)
+	   * @param event
+	   */
+	
+	
 	  _createClass(Tutorial, [{
 	    key: 'onAction',
 	    value: function onAction(event) {
+	      if (!this.started) {
+	        return;
+	      }
+	
 	      var x = event.touches ? event.touches[0].clientX : event.pageX;
 	      var y = event.touches ? event.touches[0].clientY : event.pageY;
 	      var col = parseInt((x - this.canvas.offsetLeft - this.config.padding) / this.config.tileWidth);
@@ -340,14 +388,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	        event.stopPropagation();
 	      }
 	    }
+	
+	    /**
+	     * Clear special tile.
+	     * @param row
+	     * @param col
+	     */
+	
 	  }, {
 	    key: 'clear',
 	    value: function clear(row, col) {
 	      this.ctx.clearRect(row * this.config.tileWidth + this.config.padding, col * this.config.tileHeight + this.config.padding, this.config.tileWidth, this.config.tileHeight);
 	    }
+	
+	    /**
+	     * Starts tutorial process.
+	     * @param hint
+	     */
+	
 	  }, {
-	    key: 'render',
-	    value: function render() {
+	    key: 'start',
+	    value: function start(hint) {
+	      this.started = true;
+	      this.hint = hint;
+	
 	      this.ctx.beginPath();
 	      this.ctx.rect(0, 0, this.canvas.width, this.canvas.height);
 	      this.ctx.fillStyle = 'rgba(0, 0, 0, .3)';
@@ -358,18 +422,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.clear(this.hint.to[0], this.hint.to[1]);
 	      }
 	    }
-	  }, {
-	    key: 'start',
-	    value: function start(hint) {
-	      this.started = true;
-	      this.hint = hint;
-	      this.render();
-	    }
+	
+	    /**
+	     * Finish tutorial process.
+	     */
+	
 	  }, {
 	    key: 'finish',
 	    value: function finish() {
 	      this.started = false;
-	      this.domParent.removeChild(this.canvas);
+	      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+	    }
+	
+	    /**
+	     * Returns true if tutorial was started or false if not.
+	     * @returns {boolean}
+	     */
+	
+	  }, {
+	    key: 'isStarted',
+	    value: function isStarted() {
+	      return this.started;
 	    }
 	  }]);
 	
@@ -402,6 +475,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	/**
+	 * Game field.
+	 * Handle game logic and render fruits.
+	 */
 	var Field = function () {
 	  function Field(domParent, config, spriteImage) {
 	    _classCallCheck(this, Field);
@@ -432,6 +509,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	  }
+	
+	  /**
+	   * Init game field
+	   * @param tutorial Tutorial object must be initialized in the parent
+	   */
+	
 	
 	  _createClass(Field, [{
 	    key: 'init',
@@ -468,6 +551,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      });
 	    }
+	
+	    /**
+	     * Spawn new item
+	     * @param x
+	     * @param y
+	     * @returns {Array} Matrix item
+	     */
+	
 	  }, {
 	    key: 'spawn',
 	    value: function spawn(x, y) {
@@ -479,6 +570,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      return this.matrix[y][x];
 	    }
+	
+	    /**
+	     * Render game field
+	     */
+	
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -492,9 +588,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	      });
 	    }
+	
+	    /**
+	     * Handler for game move
+	     * @param col
+	     * @param row
+	     * @param col2
+	     * @param row2
+	     * @returns {boolean}
+	     */
+	
 	  }, {
-	    key: 'onClick',
-	    value: function onClick(col, row) {
+	    key: 'onMove',
+	    value: function onMove(col, row) {
 	      var _this3 = this;
 	
 	      var col2 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
@@ -561,6 +667,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.selected = [row, col];
 	      }
 	    }
+	
+	    /**
+	     * Switch items
+	     * @param from
+	     * @param to
+	     * @returns {Promise}
+	     */
+	
 	  }, {
 	    key: 'switchItems',
 	    value: function switchItems(from, to) {
@@ -580,6 +694,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	      });
 	    }
+	
+	    /**
+	     * Check result.
+	     * Wipe items which arranged >3 in a row/column.
+	     * Returns true (if items was wiped) or false (if any wasn't found) in promise.
+	     * @returns {Promise}
+	     */
+	
 	  }, {
 	    key: 'checkResult',
 	    value: function checkResult() {
@@ -634,7 +756,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (result.wipeList.length) {
 	          var promises = [];
 	
-	          if (_this5.tutorial.started) {
+	          if (_this5.tutorial.isStarted()) {
 	            _this5.tutorial.finish();
 	          }
 	
@@ -655,6 +777,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      });
 	    }
+	
+	    /**
+	     * Remove empty items and spawns new items.
+	     * @returns {Promise}
+	     */
+	
 	  }, {
 	    key: 'combine',
 	    value: function combine() {
@@ -712,11 +840,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	      });
 	    }
+	
+	    /**
+	     * Returns item from matrix.
+	     * @param col
+	     * @param row
+	     * @returns {null}
+	     */
+	
 	  }, {
 	    key: 'getValue',
 	    value: function getValue(col, row) {
 	      return this.matrix[row] && this.matrix[row][col] ? this.matrix[row][col].value : null;
 	    }
+	
+	    /**
+	     * Check neighbors by template
+	     * @param item - Coords of current checked item
+	     * @param first - Coords of some neighbor item
+	     * @param second - Coords of some neighbor item
+	     * @param third - Coords of some neighbor item
+	     * @returns {*}
+	     */
+	
 	  }, {
 	    key: 'checkNeighbors',
 	    value: function checkNeighbors(item, first, second, third) {
@@ -726,6 +872,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	      return null;
 	    }
+	
+	    /**
+	     * Calculate hint
+	     * @param isAnimate - if true, hint will be animated
+	     * @returns {*}
+	     */
+	
 	  }, {
 	    key: 'hint',
 	    value: function hint() {
@@ -800,6 +953,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	/**
+	 * Draw sprite
+	 */
 	var Sprite = function () {
 	  function Sprite(context, spriteImage, width, height, initialValue) {
 	    _classCallCheck(this, Sprite);
@@ -812,6 +968,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.lastPos = null;
 	    this.isSelected = null;
 	  }
+	
+	  /**
+	   * Render sprite
+	   * @param x
+	   * @param y
+	   */
+	
 	
 	  _createClass(Sprite, [{
 	    key: "render",
@@ -835,12 +998,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.context.drawImage(this.spriteImage, 0, 0, this.width, this.height, x, y, this.width, this.height);
 	      }
 	    }
+	
+	    /**
+	     * Mark item as selected
+	     * @param isSelected
+	     */
+	
 	  }, {
 	    key: "select",
 	    value: function select(isSelected) {
 	      this.isSelected = isSelected;
 	      this.render(this.lastPos[0], this.lastPos[1]);
 	    }
+	
+	    /**
+	     * Move item to special coordinates.
+	     * @param {Number} x - X coord
+	     * @param {Number} y - Y coord
+	     * @param {Boolean} animate - If true, move will be animated
+	     * @returns {Promise}
+	     */
+	
 	  }, {
 	    key: "moveTo",
 	    value: function moveTo(x, y) {
@@ -874,6 +1052,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      });
 	    }
+	
+	    /**
+	     * Remove item.
+	     * @param {Boolean} animate - If true, explode animation will be played
+	     * @returns {Promise}
+	     */
+	
 	  }, {
 	    key: "wipe",
 	    value: function wipe() {
@@ -908,6 +1093,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      });
 	    }
+	
+	    /**
+	     * Animate hint move.
+	     * @param from
+	     * @param to
+	     * @returns {Promise}
+	     */
+	
 	  }, {
 	    key: "animateHint",
 	    value: function animateHint(from, to) {
@@ -958,6 +1151,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
+	/**
+	 * Game control.
+	 * Handle clicks, drags and swipes events.
+	 */
 	var Control = function () {
 	  function Control(element, config, callback) {
 	    var _this = this;
@@ -993,12 +1190,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, false);
 	  }
 	
+	  /**
+	   * Handle start of dragging or swiping.
+	   * @param event
+	   */
+	
+	
 	  _createClass(Control, [{
 	    key: 'handleStart',
 	    value: function handleStart(event) {
 	      this.xDown = event.touches ? event.touches[0].clientX : event.pageX;
 	      this.yDown = event.touches ? event.touches[0].clientY : event.pageY;
 	    }
+	
+	    /**
+	     * Handle drag or swipe event.
+	     * @param event
+	     */
+	
 	  }, {
 	    key: 'handleMove',
 	    value: function handleMove(event) {
@@ -1032,6 +1241,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      }
 	    }
+	
+	    /**
+	     * Callback - calls when move (drag, swipe, click) was done.
+	     * @param col - Column of first item
+	     * @param row - Row of first item
+	     * @param col2 - Column of second item
+	     * @param row2 - Row of second item
+	     */
+	
 	  }, {
 	    key: 'handleCallback',
 	    value: function handleCallback(col, row) {
