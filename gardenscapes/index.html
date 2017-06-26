@@ -4,19 +4,30 @@
   <meta charset="UTF-8">
   <title>Gardenscapes</title>
 
-  <script src="lib/sprite.js"></script>
-  <script src="lib/game.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
 
-  <link href="styles.css" rel="stylesheet" type="text/css">
+    #demo {
+      width: 100%;
+      height: 100vh;
+      text-align: center;
+    }
+  </style>
+
+  <script src="garden.min.js"></script>
 </head>
 <body>
 
-<div id="demo"></div>
-
 <script>
-  const game = new Game('demo');
-  game.start();
+  document.body.onload = () => {
+    GardenScape.game('demo', 'config.json');
+  };
 </script>
+
+<div id="demo"></div>
 
 </body>
 </html>
