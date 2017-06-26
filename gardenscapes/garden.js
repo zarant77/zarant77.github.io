@@ -169,6 +169,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.config = null;
 	    this.sprite = null;
 	    this.started = false;
+	    this.finished = false;
 	    this.fruitsAmount = 0;
 	    this.timeRemaining = 0;
 	    this.timerId = null;
@@ -177,6 +178,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.events = {
 	      load: [],
 	      start: [],
+	      restart: [],
 	      end: [],
 	      timer: [],
 	      score: []
@@ -190,6 +192,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      _this.config = config;
 	      _this.sprite = sprite;
 	      _this.fruitsAmount = parseInt(Math.sqrt(_this.config.cols * _this.config.rows));
+	
+	      // Set max amount of fruits 9, because we have only 9 sprites.
+	      if (_this.fruitsAmount > 9) {
+	        _this.fruitsAmount = 9;
+	      }
 	
 	      _this.rise('load');
 	    });
@@ -242,6 +249,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.resetScore();
 	
 	      this.started = true;
+	      this.finished = false;
 	      this.timeRemaining = this.config.timeLimit;
 	
 	      if (this.timerId) {
@@ -261,6 +269,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.rise('start');
 	    }
 	  }, {
+	    key: 'restart',
+	    value: function restart() {
+	      this.rise('restart');
+	    }
+	  }, {
 	    key: 'resetScore',
 	    value: function resetScore() {
 	      this.scores = {};
@@ -277,9 +290,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'end',
 	    value: function end() {
 	      this.started = false;
+	      this.finished = true;
 	      this.rise('end');
-	
-	      alert('You collected ' + this.getTotalScore() + ' fruits');
 	    }
 	
 	    /**
@@ -646,38 +658,44 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.spriteImage = game.sprite;
 	    this.matrix = [];
 	    this.selected = null;
-	    this.animation = false;
 	    this.hintTimerId = null;
+	
+	    game.on('start', function () {
+	      _this.render();
+	    });
+	
+	    game.on('restart', function () {
+	      _this.selected = null;
+	      _this.init();
+	    });
 	
 	    game.on('end', function () {
 	      if (_this.hintTimerId) {
 	        clearInterval(_this.hintTimerId);
 	      }
 	
-	      if (_this.tutorial.isStarted()) {
+	      if (_this.tutorial && _this.tutorial.isStarted()) {
 	        _this.tutorial.finish();
 	      }
+	
+	      _this.render();
 	    });
 	
-	    var canvas = document.createElement('canvas');
+	    game.on('score', function () {
+	      _this.render();
+	    });
 	
-	    canvas.style.position = 'absolute';
-	    canvas.style.top = 0;
-	    canvas.style.left = 0;
-	    canvas.width = this.config.cols * this.config.tileWidth + this.config.padding * 2;
-	    canvas.height = this.config.rows * this.config.tileHeight + this.config.padding * 2;
+	    this.canvas = document.createElement('canvas');
 	
-	    domParent.appendChild(canvas);
+	    this.canvas.style.position = 'absolute';
+	    this.canvas.style.top = 0;
+	    this.canvas.style.left = 0;
+	    this.canvas.width = this.config.cols * this.config.tileWidth + this.config.padding * 2;
+	    this.canvas.height = this.config.rows * this.config.tileHeight + this.config.padding * 2;
 	
-	    this.ctx = canvas.getContext('2d');
+	    domParent.appendChild(this.canvas);
 	
-	    for (var y = 0; y < this.config.rows; y++) {
-	      this.matrix[y] = [];
-	
-	      for (var x = 0; x < this.config.cols; x++) {
-	        this.spawn(x, y);
-	      }
-	    }
+	    this.ctx = this.canvas.getContext('2d');
 	  }
 	
 	  /**
@@ -688,17 +706,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	  _createClass(Field, [{
 	    key: 'init',
-	    value: function init(tutorial) {
+	    value: function init() {
 	      var _this2 = this;
 	
+	      var tutorial = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+	
 	      this.tutorial = tutorial;
-	      this.render();
 	
 	      var done = function done() {
-	        // Turn on animation
-	        _this2.animation = true;
 	        _this2.hintTimer = 6;
-	        _this2.tutorial.start(_this2.hint(false));
+	        if (_this2.tutorial) {
+	          _this2.tutorial.start(_this2.hint(false));
+	        }
 	        _this2.game.start();
 	        _this2.game.resetScore();
 	
@@ -712,6 +731,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, 1000);
 	      };
 	
+	      this.generateMatrix();
+	      this.render();
+	
 	      this.checkResult().then(function (result) {
 	        if (result) {
 	          _this2.combine().then(function () {
@@ -721,6 +743,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	          done();
 	        }
 	      });
+	    }
+	
+	    /**
+	     * Generates matrix
+	     */
+	
+	  }, {
+	    key: 'generateMatrix',
+	    value: function generateMatrix() {
+	      for (var y = 0; y < this.config.rows; y++) {
+	        this.matrix[y] = [];
+	
+	        for (var x = 0; x < this.config.cols; x++) {
+	          this.spawn(x, y);
+	        }
+	      }
 	    }
 	
 	    /**
@@ -734,7 +772,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'spawn',
 	    value: function spawn(x, y) {
 	      if (this.config.deadzones[y + '-' + x] === undefined) {
-	        this.matrix[y][x] = new _sprite2.default(this.ctx, this.spriteImage, this.config.tileWidth, this.config.tileHeight, parseInt(Math.random() * parseInt(Math.sqrt(this.config.cols * this.config.rows))));
+	        this.matrix[y][x] = new _sprite2.default(this.ctx, this.spriteImage, this.config.tileWidth, this.config.tileHeight, parseInt(Math.random() * this.game.fruitsAmount));
 	      } else {
 	        this.matrix[y][x] = null;
 	      }
@@ -751,13 +789,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function render() {
 	      var _this3 = this;
 	
-	      this.matrix.forEach(function (row, rowNum) {
-	        row.forEach(function (item, colNum) {
-	          if (item !== null) {
-	            item.render(colNum * _this3.config.tileWidth + _this3.config.padding, rowNum * _this3.config.tileHeight + _this3.config.padding);
-	          }
+	      if (this.game.finished) {
+	        // If game is finished - render "Game Over" screen
+	        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+	
+	        this.ctx.fillStyle = '#fffc24';
+	        this.ctx.font = '64px comic sans ms';
+	        this.ctx.textAlign = 'center';
+	
+	        this.ctx.fillText('You collected ' + this.game.getTotalScore() + ' fruits', this.canvas.width / 2, 100);
+	        this.ctx.fillText('Double click on the field', this.canvas.width / 2, 200);
+	        this.ctx.fillText('to start new game', this.canvas.width / 2, 300);
+	      } else {
+	        // If game isn't finished - render matrix
+	        this.matrix.forEach(function (row, rowNum) {
+	          row.forEach(function (item, colNum) {
+	            if (item !== null) {
+	              item.render(colNum * _this3.config.tileWidth + _this3.config.padding, rowNum * _this3.config.tileHeight + _this3.config.padding);
+	            }
+	          });
 	        });
-	      });
+	      }
 	    }
 	
 	    /**
@@ -822,7 +874,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	            _this4.checkResult().then(function (result) {
 	              if (result) {
 	                // If we have result - remove empty fields.
-	                _this4.combine();
+	                _this4.combine().then(function () {
+	                  if (!_this4.hint()) {
+	                    _this4.generateMatrix();
+	                  }
+	
+	                  _this4.render();
+	                });
 	              } else {
 	                // If we no have result - turn it back.
 	                _this4.switchItems([selRow, selCol], [row, col]).then(function () {
@@ -860,7 +918,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _this5.matrix[from[0]][from[1]] = _this5.matrix[to[0]][to[1]];
 	        _this5.matrix[to[0]][to[1]] = tmp;
 	
-	        Promise.all([_this5.matrix[from[0]][from[1]].moveTo(from[1] * _this5.config.tileWidth + _this5.config.padding, from[0] * _this5.config.tileHeight + _this5.config.padding, _this5.animation), _this5.matrix[to[0]][to[1]].moveTo(to[1] * _this5.config.tileWidth + _this5.config.padding, to[0] * _this5.config.tileHeight + _this5.config.padding, _this5.animation)]).then(function () {
+	        Promise.all([_this5.matrix[from[0]][from[1]].moveTo(from[1] * _this5.config.tileWidth + _this5.config.padding, from[0] * _this5.config.tileHeight + _this5.config.padding, _this5.game.started), _this5.matrix[to[0]][to[1]].moveTo(to[1] * _this5.config.tileWidth + _this5.config.padding, to[0] * _this5.config.tileHeight + _this5.config.padding, _this5.game.started)]).then(function () {
 	          return resolve();
 	        });
 	      });
@@ -917,19 +975,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	          }
 	        }
 	
-	        for (var _x3 = 0; _x3 < _this6.matrix[0].length; _x3++) {
+	        for (var _x4 = 0; _x4 < _this6.matrix[0].length; _x4++) {
 	          result.lastValue = null;
 	          result.chain = [];
 	
 	          for (var _y = 0; _y < _this6.matrix.length; _y++) {
-	            result.check(_y, _x3);
+	            result.check(_y, _x4);
 	          }
 	        }
 	
 	        if (result.wipeList.length) {
 	          var promises = [];
 	
-	          if (_this6.tutorial.isStarted()) {
+	          if (_this6.tutorial && _this6.tutorial.isStarted()) {
 	            _this6.tutorial.finish();
 	          }
 	
@@ -939,7 +997,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                row = _item$split2[0],
 	                col = _item$split2[1];
 	
-	            promises.push(_this6.matrix[row][col].wipe(_this6.animation));
+	            promises.push(_this6.matrix[row][col].wipe(_this6.game.started));
 	          });
 	
 	          Promise.all(promises).then(function () {
@@ -980,7 +1038,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	                newItem.render(col * _this7.config.tileHeight + _this7.config.padding, 0);
 	
-	                promises.push(newItem.moveTo(col * _this7.config.tileHeight + _this7.config.padding, row * _this7.config.tileWidth + _this7.config.padding, _this7.animation));
+	                promises.push(newItem.moveTo(col * _this7.config.tileHeight + _this7.config.padding, row * _this7.config.tileWidth + _this7.config.padding, _this7.game.started));
 	              }
 	            }
 	          }
@@ -1261,7 +1319,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	          }, 400 / ticks);
 	        } else {
 	          // Just draw empty field
-	          _this2.context.clearRect(_this2.lastPos[0], _this2.lastPos[1], _this2.width, _this2.height);
+	          if (_this2.lastPos) {
+	            _this2.context.clearRect(_this2.lastPos[0], _this2.lastPos[1], _this2.width, _this2.height);
+	          }
+	
 	          resolve();
 	        }
 	      });
@@ -1361,6 +1422,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, false);
 	    this.element.addEventListener('mousemove', function (event) {
 	      return _this.handleMove(event);
+	    }, false);
+	
+	    this.element.addEventListener('dblclick', function () {
+	      if (_this.game.finished) {
+	        _this.game.restart();
+	      }
 	    }, false);
 	  }
 	
@@ -1471,7 +1538,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _classCallCheck(this, Score);
 	
 	    this.game = game;
-	    this.ratio = 1.5;
+	    this.ratio = 1.8;
 	    this.sprites = {
 	      0: [1, 0],
 	      1: [2, 0],
@@ -1497,7 +1564,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    this.ctx = this.canvas.getContext('2d');
 	    this.ctx.fillStyle = '#ffffff';
-	    this.ctx.font = '48px comic sans ms';
+	    this.ctx.font = '40px comic sans ms';
 	
 	    this.game.on('load', function () {
 	      return _this.render();
@@ -1534,18 +1601,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      }
 	
-	      for (var i = 0; i <= this.game.fruitsAmount; i++) {
+	      for (var i = 0; i < this.game.fruitsAmount; i++) {
 	        this.drawSprite(i, 20, i * (this.game.config.tileHeight / this.ratio) + 130, this.ratio);
-	        this.ctx.fillText(this.game.scores[i], 120, i * (this.game.config.tileHeight / this.ratio) + 190);
+	        this.ctx.fillText(this.game.scores[i], 120, i * (this.game.config.tileHeight / this.ratio) + 180);
 	      }
 	
-	      this.drawSprite('total', 20, (this.game.fruitsAmount + 1) * (this.game.config.tileHeight / this.ratio) + 140, this.ratio);
-	      this.ctx.fillText('' + this.game.getTotalScore(), 120, (this.game.fruitsAmount + 1) * (this.game.config.tileHeight / this.ratio) + 200);
+	      this.drawSprite('total', 20, this.canvas.height - 130, this.ratio);
+	      this.ctx.fillText('' + this.game.getTotalScore(), 120, this.canvas.height - 80);
 	
 	      this.drawSprite('watch', 20, 30, this.ratio);
 	      var min = parseInt(this.game.timeRemaining / 60);
 	      var sec = this.game.timeRemaining % 60;
-	      this.ctx.fillText((min < 10 ? '0' + min : min) + ':' + (sec < 10 ? '0' + sec : sec), 120, 90);
+	      this.ctx.fillText((min < 10 ? '0' + min : min) + ':' + (sec < 10 ? '0' + sec : sec), 120, 80);
 	    }
 	  }]);
 	

@@ -1,5 +1,5 @@
 {
-  "timeLimit": 180,
+  "timeLimit": 60,
   "cols": 9,
   "rows": 7,
   "deadzones": {
