@@ -1,0 +1,7 @@
+{
+  "potsAmount": 4,
+  "wateredTimes": 3,
+  "timeAfterWatering": 3,
+  "weedsFromBush": 4,
+  "goalWeeds": 16
+}
