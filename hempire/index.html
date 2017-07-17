@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>Hempire</title>
+  <script>
+    window.onerror = function (errorMsg, url, lineNumber) {
+      document.body.innerHTML = '<h1>' + url + ':' + lineNumber + '</h1><pre>' + errorMsg + '<pre>';
+    }
+  </script>
 </head>
 
 <body style="background: #857d3d;">
