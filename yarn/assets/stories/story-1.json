@@ -1,0 +1,72 @@
+{
+  "people":[
+    {
+      "name": "Sonya",
+      "bgColor": "#f6ecec",
+      "nameColor": "#ec57a3",
+      "textColor": "#000000"
+    },
+    {
+      "name": "Charlie",
+      "bgColor": "#ebeff4",
+      "nameColor": "#12adf7",
+      "textColor": "#000000"
+    }
+  ],
+  "story": [
+    {
+      "person": 0,
+      "text": "What are you doing?"
+    },
+    {
+      "person": 1,
+      "text": "I'm eating cookies (*Smile*)\nIt's tasty!"
+    },
+    {
+      "person": 1,
+      "image": "http://img.sndimg.com/food/image/upload/h_300,w_400,c_fit/v1/img/recipes/80/15/6/hVNf9A7ZQ96mqTPHHSif_DSC_0046.JPG"
+    },
+    {
+      "person": 0,
+      "text": "What were you doing last night? (*Annoying*)"
+    },
+    {
+      "person": 1,
+      "text": "I was eating cookies. (*Tongue*)"
+    },
+    {
+      "remark": "1 hour later"
+    },
+    {
+      "person": 0,
+      "emotion": "Sonya, now slightly angry (*Angry*)!"
+    },
+    {
+      "person": 0,
+      "text": "What will you be doing tomorrow?"
+    },
+    {
+      "person": 1,
+      "text": "I'll be eating (*Tongue2*) cookies."
+    },
+    {
+      "person": 0,
+      "emotion": "Sonya's very angry right now!"
+    },
+    {
+      "remark": "The next morning"
+    },
+    {
+      "person": 0,
+      "text": "Don't you do anything else? (*Surprise*)"
+    },
+    {
+      "person": 1,
+      "text": "No, I've been too busy eating cookies! (*Sarcastic*)"
+    },
+    {
+      "person": 0,
+      "image": "http://i0.kym-cdn.com/photos/images/original/000/001/582/picard-facepalm.jpg"
+    }
+  ]
+}
