@@ -3,5 +3,6 @@
   "story": "story-1",
   "isEndScreenFullyClickable": true,
   "isBlack": false,
+  "typeTimer": 1,
   "hintTimer": 1
 }
