@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <title>Kestrel Drift</title>
   <link rel="icon" type="image/svg+xml" href="/assets/favicon-n2TpsUzP.svg" />
-  <script type="module" crossorigin src="/assets/index-CFxVcfDH.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-sm_Utkk0.css">
+  <script type="module" crossorigin src="/assets/index-B4dqGXcd.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-s9Tu2eC6.css">
 </head>
 
 <body>
@@ -14,8 +14,12 @@
   <canvas id="osd"></canvas>
   <div id="dev"></div>
 
-  <button id="menu-btn" data-i18n-title="ui.menu" data-i18n-aria-label="ui.menu" title="Menu"
-    aria-label="Menu">⚙</button>
+  <div id="topmenu">
+    <button id="menu-btn" data-i18n-title="ui.menu" data-i18n-aria-label="ui.menu" title="Menu"
+      aria-label="Menu">⚙</button>
+    <button id="fullscreen-btn" data-i18n-title="ui.fullscreen" data-i18n-aria-label="ui.fullscreen" title="Fullscreen"
+      aria-label="Fullscreen">⛶</button>
+  </div>
 
   <div id="menu-overlay" data-open="false" role="dialog" aria-modal="true" data-i18n-aria-label="ui.menu"
     aria-label="Menu">
@@ -189,6 +193,7 @@
     <div class="box">
       <img class="logo" src="/assets/logo-Dtj2M0Q_.svg" data-i18n-alt="app.logo_alt" alt="Kestrel Drift logo" />
       <div class="title" data-i18n="app.title">Kestrel Drift</div>
+      <div class="spinner" aria-hidden="true"></div>
     </div>
   </div>
 
