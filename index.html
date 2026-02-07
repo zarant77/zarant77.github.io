@@ -5,20 +5,20 @@
   <meta charset="UTF-8" />
   <title>Kestrel Drift</title>
   <link rel="icon" type="image/svg+xml" href="/assets/favicon-n2TpsUzP.svg" />
-  <script type="module" crossorigin src="/assets/index-BdTMRFJH.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DDG0vqVL.css">
+  <script type="module" crossorigin src="/assets/index-C_2uVDXR.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DKEWoFol.css">
 </head>
 
 <body>
-  <canvas id="view3d"></canvas>
+  <canvas id="scene"></canvas>
   <canvas id="osd"></canvas>
   <div id="dev"></div>
 
-  <div id="topmenu">
-    <button id="menu-btn" data-i18n-title="ui.menu" data-i18n-aria-label="ui.menu" title="Menu"
+  <div id="topmenu" class="topbar">
+    <button id="menu-btn" class="icon-btn" data-i18n-title="ui.menu" data-i18n-aria-label="ui.menu" title="Menu"
       aria-label="Menu">⚙</button>
-    <button id="fullscreen-btn" data-i18n-title="ui.fullscreen" data-i18n-aria-label="ui.fullscreen" title="Fullscreen"
-      aria-label="Fullscreen">⛶</button>
+    <button id="fullscreen-btn" class="icon-btn" data-i18n-title="ui.fullscreen" data-i18n-aria-label="ui.fullscreen"
+      title="Fullscreen" aria-label="Fullscreen">⛶</button>
   </div>
 
   <div id="menu-overlay" data-open="false" role="dialog" aria-modal="true" data-i18n-aria-label="ui.menu"
@@ -29,162 +29,10 @@
         <img id="menu-logo" src="/assets/logo-Dtj2M0Q_.svg" data-i18n-alt="app.logo_alt" alt="Kestrel Drift logo" />
       </div>
 
-      <!-- Root -->
-      <div class="menu-screen" data-screen="root">
-        <button class="menu-btn menu-btn-root" id="menu-continue" data-i18n="menu.continue">Continue</button>
-        <button class="menu-btn menu-btn-root" id="menu-restart" data-i18n="menu.restart">Restart</button>
-        <button class="menu-btn menu-btn-root" id="menu-keybinds" data-i18n="menu.keybindings">Keybindings</button>
-        <button class="menu-btn menu-btn-root" id="menu-gamepad" data-i18n="menu.gamepad">Gamepad calibration</button>
-        <button class="menu-btn menu-btn-root" id="menu-settings" data-i18n="menu.settings">Settings</button>
-        <div class="menu-hint" data-i18n="hint.esc_close">Esc — close</div>
-      </div>
-
-      <!-- Keybindings dialog -->
-      <div class="menu-screen" data-screen="keybindings">
-        <div class="menu-head">
-          <button class="menu-back" id="menu-back-keybinds" data-i18n="common.back">← Back</button>
-          <div class="menu-head-title" data-i18n="menu.keybindings">Keybindings</div>
-        </div>
-
-        <div class="menu-body">
-          <div id="kb-list"></div>
-
-          <button class="menu-btn" id="kb-reset" data-i18n="kb.reset_defaults">Reset to defaults</button>
-          <div class="menu-note" id="kb-hint" data-i18n="kb.hint_click_bind">Click a bind to rebind.</div>
-
-          <div class="menu-note" id="kb-gamepad-note" data-i18n="kb.gamepad_note">
-            Gamepad (alt):
-            Toggle Cam = Button 1, Toggle Dev = Button 9, Drop = Button 0,
-            Cam Tilt = Axis 4, Cam Zoom = Axis 5
-          </div>
-        </div>
-
-        <div class="menu-hint" data-i18n="hint.esc_back">Esc — back</div>
-      </div>
-
-      <!-- Gamepad dialog -->
-      <div class="menu-screen" data-screen="gamepad">
-        <div class="menu-head">
-          <button class="menu-back" id="menu-back-gamepad" data-i18n="common.back">← Back</button>
-          <div class="menu-head-title" data-i18n="menu.gamepad">Gamepad calibration</div>
-        </div>
-
-        <div class="menu-body">
-          <div class="menu-note" id="gp-status"></div>
-
-          <div id="gp-bindings"></div>
-
-          <label class="menu-label" style="display:flex; gap:10px; align-items:center;">
-            <input type="checkbox" id="gp-swap-yaw-roll" />
-            <span data-i18n="gp.swap_yaw_roll">Swap Yaw/Roll</span>
-          </label>
-
-          <div style="display:flex; gap:10px;">
-            <button class="menu-btn" id="gp-save" data-i18n="common.save">Save</button>
-            <button class="menu-btn" id="gp-reset" data-i18n="common.reset">Reset</button>
-          </div>
-
-          <pre class="menu-note" id="gp-live" style="white-space:pre; overflow:auto; max-height:160px;"></pre>
-          <div class="menu-note" id="gp-pressed"></div>
-          <div class="menu-note" id="gp-hint"></div>
-        </div>
-
-        <div class="menu-hint" data-i18n="hint.esc_cancel_back">Esc — cancel capture / back</div>
-      </div>
-
-      <!-- Settings dialog -->
-      <div class="menu-screen" data-screen="settings">
-        <div class="menu-head">
-          <button class="menu-back" id="menu-back-settings" data-i18n="common.back">← Back</button>
-          <div class="menu-head-title" data-i18n="menu.settings">Settings</div>
-        </div>
-
-        <div class="menu-body">
-          <div id="settings-grid">
-            <div class="settings-card">
-              <label class="menu-label" data-i18n="settings.language">Language</label>
-              <select id="locale-select" class="menu-select"></select>
-            </div>
-
-            <div class="settings-card spacer"></div>
-
-            <div class="settings-card">
-              <label class="menu-label" data-i18n="settings.drone_preset">Drone preset</label>
-              <select id="scenario-select" class="menu-select"></select>
-            </div>
-
-            <div class="settings-card">
-              <label class="menu-label" data-i18n="settings.select_zone">Select zone</label>
-              <select id="zone-select" class="menu-select"></select>
-            </div>
-
-            <div class="settings-card">
-              <div class="menu-row" style="margin:0;">
-                <label class="menu-check">
-                  <input id="wind-enabled" type="checkbox" />
-                  <span data-i18n="settings.wind_enabled">Wind enabled</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="settings-card">
-              <label class="menu-label">
-                <span data-i18n="settings.wind_direction">Wind direction</span>
-                <span id="wind-dir-val">0°</span>
-              </label>
-
-              <div class="menu-row">
-                <input id="wind-dir" class="menu-range" type="range" min="0" max="359" step="1">
-                <div id="wind-dir-viz" class="wind-viz" data-i18n-aria-label="settings.wind_dir_viz"
-                  aria-label="Wind direction visualization">
-                  <svg viewBox="0 0 64 64" class="wind-viz-svg" role="img" aria-hidden="true">
-                    <circle cx="32" cy="32" r="29" class="wind-viz-ring"></circle>
-                    <path id="wind-dir-arrow" d="M32 10 L40 26 L34 26 L34 50 L30 50 L30 26 L24 26 Z"
-                      class="wind-viz-arrow"></path>
-                    <circle cx="32" cy="32" r="2.5" class="wind-viz-dot"></circle>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <div class="settings-card">
-              <label class="menu-label">
-                <span data-i18n="settings.wind_base_speed">Base speed (m/s)</span>
-                <span id="wind-min-val"></span>
-              </label>
-              <input id="wind-min" class="menu-range" type="range" min="0" max="20" step="0.5">
-            </div>
-
-            <div class="settings-card">
-              <label class="menu-label">
-                <span data-i18n="settings.wind_gust_max">Gust max (m/s)</span>
-                <span id="wind-max-val"></span>
-              </label>
-              <input id="wind-max" class="menu-range" type="range" min="0" max="30" step="0.5">
-            </div>
-
-            <div class="settings-card">
-              <label class="menu-label">
-                <span data-i18n="settings.variation">Variation</span>
-                <span id="wind-variation-val"></span>
-              </label>
-              <input id="wind-variation" class="menu-range" type="range" min="0" max="1" step="0.01">
-            </div>
-
-            <div class="settings-card">
-              <label class="menu-label">
-                <span data-i18n="settings.gustiness">Gustiness</span>
-                <span id="wind-gustiness-val"></span>
-              </label>
-              <input id="wind-gustiness" class="menu-range" type="range" min="0" max="1" step="0.01">
-            </div>
-          </div>
-
-          <button class="menu-btn" id="settings-apply" data-i18n="common.apply">Apply</button>
-        </div>
-
-        <div class="menu-hint" data-i18n="hint.esc_back">Esc — back</div>
-      </div>
+      <!-- Screens. Content in /src/ui/menu/screens/<screen>/index.html -->
+      <div class="menu-screen" data-screen="root" id="screen-root"></div>
+      <div class="menu-screen" data-screen="controls" id="screen-controls"></div>
+      <div class="menu-screen" data-screen="settings" id="screen-settings"></div>
     </div>
   </div>
 
