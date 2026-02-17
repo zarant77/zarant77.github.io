@@ -12,6 +12,15 @@ async function rmDirSafe(dir) {
   await fs.rm(dir, { recursive: true, force: true });
 }
 
+async function exists(filePath) {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function copyDir(srcDir, dstDir) {
   try {
     await fs.mkdir(dstDir, { recursive: true });
@@ -45,6 +54,40 @@ async function write(rel, content) {
   await fs.writeFile(filePath, content, "utf8");
 }
 
+function pickCvLanding(cvObj) {
+  const list = [];
+  if (cvObj?.playable?.landing) list.push(cvObj.playable.landing);
+  if (cvObj?.backend?.landing) list.push(cvObj.backend.landing);
+  return list;
+}
+
+async function tryBuildCvPages({ contacts, cv }) {
+  const cvTemplatePath = src("templates", "cv.ejs");
+  const hasCvTemplate = await exists(cvTemplatePath);
+
+  if (!hasCvTemplate) {
+    console.warn("WARN: src/templates/cv.ejs not found — keeping old CVs from cv-old.");
+    return;
+  }
+
+  const playablePage = cv?.playable?.page;
+  const backendPage = cv?.backend?.page;
+
+  if (!playablePage || !backendPage) {
+    console.warn("WARN: cv.playable.page or cv.backend.page missing — keeping old CVs from cv-old.");
+    return;
+  }
+
+  const playableHtml = await render("cv.ejs", { contacts, ...playablePage });
+  const backendHtml = await render("cv.ejs", { contacts, ...backendPage });
+
+  await write("cv/playable.html", playableHtml);
+  await write("cv/backend.html", backendHtml);
+
+  console.log(" - docs/cv/playable.html (generated)");
+  console.log(" - docs/cv/backend.html (generated)");
+}
+
 async function main() {
   // Clean docs
   await rmDirSafe(out());
@@ -62,15 +105,26 @@ async function main() {
   const projects = await readJson("data/projects.json");
   const cv = await readJson("data/cv.json");
 
+  // Landing wants an array of CV cards
+  const cvLanding = pickCvLanding(cv);
+
   // Render landing
-  const indexHtml = await render("index.ejs", { contacts, site, projects, cv });
+  const indexHtml = await render("index.ejs", {
+    contacts,
+    site,
+    projects,
+    cv: cvLanding
+  });
   await write("index.html", indexHtml);
+
+  // Try to build new CV pages from cv.json (overwrites old copies if available)
+  await tryBuildCvPages({ contacts, cv });
 
   console.log("Built:");
   console.log(" - docs/index.html");
   console.log(" - docs/assets");
   console.log(" - docs/demos");
-  console.log(" - docs/cv (old copied)");
+  console.log(" - docs/cv (old copied, may be overwritten by generated pages)");
 }
 
 main().catch((e) => {

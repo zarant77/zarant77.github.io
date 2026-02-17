@@ -1,14 +1,56 @@
-[
-  {
-    "title": "Playable Ads CV",
-    "badge": "2017–2022",
-    "text": "Performance-critical HTML5 playables built primarily with TypeScript under strict size and runtime constraints. Includes internal tooling and reusable systems.",
-    "href": "cv/playable.html"
+{
+  "playable": {
+    "landing": {
+      "title": "Playable Ads CV",
+      "badge": "2017–2022",
+      "text": "Performance-critical HTML5 playables built primarily with TypeScript under strict size and runtime constraints. Includes internal tooling and reusable systems.",
+      "href": "cv/playable.html",
+      "pdf": "cv/playable.pdf"
+    },
+    "page": {
+      "pageTitle": "Anton Zarubin | Playable Ads CV",
+      "metaDescription": "Playable Ads CV. TypeScript/ES6, performance engineering, internal tooling, ad network integration.",
+      "titleTagline": "TypeScript · HTML5 Playable Ads · Tooling · Performance",
+      "summary": "Senior Software Engineer with 20+ years of commercial experience...",
+      "sections": [
+        {
+          "title": "Core Technologies",
+          "type": "bullets",
+          "items": [
+            "TypeScript (primary since 2017)",
+            "HTML5 Canvas",
+            "Ad network integration (ironSource/Unity, Luna)",
+            "Node.js CLI tooling"
+          ]
+        }
+      ]
+    }
   },
-  {
-    "title": "Fullstack / Backend CV",
-    "badge": "20+ yrs",
-    "text": "Production backend systems, APIs, databases, architecture and performance engineering. Pragmatic delivery with clean system design.",
-    "href": "cv/backend.html"
+  "backend": {
+    "landing": {
+      "title": "Fullstack / Backend CV",
+      "badge": "20+ yrs",
+      "text": "Production backend systems, APIs, databases, architecture and performance engineering.",
+      "href": "cv/backend.html",
+      "pdf": "cv/backend.pdf"
+    },
+    "page": {
+      "pageTitle": "Anton Zarubin | Backend / Fullstack CV",
+      "metaDescription": "Backend / Fullstack CV. Architecture, APIs, databases, performance engineering.",
+      "titleTagline": "Backend / Fullstack · Architecture · Performance",
+      "summary": "Senior Software Engineer with 20+ years of commercial experience...",
+      "sections": [
+        {
+          "title": "Core Technologies",
+          "type": "bullets",
+          "items": [
+            "Node.js / TypeScript",
+            "REST APIs",
+            "Database design",
+            "System architecture"
+          ]
+        }
+      ]
+    }
   }
-]
+}

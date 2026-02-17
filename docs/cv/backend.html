@@ -1,30 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Backend CV | Anton Zarubin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../assets/css/styles.css">
+  <meta charset="UTF-8" />
+  <title>Anton Zarubin | Backend / Fullstack CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Backend / Fullstack CV. Architecture, APIs, databases, performance engineering." />
+  <link rel="stylesheet" href="../assets/css/cv.css" />
 </head>
+
 <body>
+  <header class="cv-header">
+    <div class="cv-container">
+      <div class="cv-top">
+        <div class="cv-id">
+          <h1 class="cv-name">Anton Zarubin</h1>
+          <p class="cv-role">Senior Software Engineer</p>
+          <p class="cv-tagline">Backend / Fullstack · Architecture · Performance</p>
+        </div>
 
-  <main class="container">
-    <h1>Anton Zarubin</h1>
-    <p class="subtitle">Senior Backend Engineer</p>
+        <div class="cv-contact">
+          <a class="cv-link" href="mailto:anton.zarubin@gmail.com">anton.zarubin@gmail.com</a>
+          <span class="cv-dot">•</span>
+          <a class="cv-link" href="tel:+380666251177">+380 666 25 11 77</a>
+          <span class="cv-dot">•</span>
+          <a class="cv-link" href="https://zarant77.github.io/">zarant77.github.io/</a>
+          <span class="cv-dot">•</span>
+          <a class="cv-link" href="https://github.com/zarant77" target="_blank" rel="noopener">GitHub</a>
+          <span class="cv-dot">•</span>
+          <a class="cv-link" href="https://www.linkedin.com/in/zarant77" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
 
-    <section>
-      <h2>Professional Summary</h2>
-      <p>
-        20+ years in commercial software engineering.
-        Specialized in backend architecture, high-load systems and performance-driven design.
-      </p>
-    </section>
+      
+        <div class="cv-summary">
+          <p>Senior Software Engineer with 20+ years of commercial experience...</p>
+        </div>
+      
+    </div>
+  </header>
 
-    <section>
-      <h2>Experience</h2>
-      <p>Details coming soon.</p>
-    </section>
+  <main class="cv-container cv-main">
+    
+      <section class="cv-section">
+        <h2 class="cv-h2">Core Technologies</h2>
+
+        
+
+        
+          <ul class="cv-list">
+            
+              <li>Node.js / TypeScript</li>
+            
+              <li>REST APIs</li>
+            
+              <li>Database design</li>
+            
+              <li>System architecture</li>
+            
+          </ul>
+        
+
+        
+
+        
+
+      </section>
+    
+
+    <footer class="cv-footer">
+      <a class="cv-back" href="../index.html">← Back to landing</a>
+      <span class="cv-muted">© <span id="y"></span> Anton Zarubin</span>
+    </footer>
   </main>
 
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

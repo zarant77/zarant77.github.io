@@ -77,7 +77,13 @@
               <%= item.text %>
             </p>
             <div class="card-actions">
-              <a class="btn" href="<%= item.href %>">Open</a>
+              <a class="btn" href="<%= item.href %>">Open Web</a>
+
+              <% if (item.pdf) { %>
+                <a class="btn" href="<%= item.pdf %>" target="_blank" rel="noopener">
+                  Download PDF
+                </a>
+              <% } %>
             </div>
           </article>
           <% }) %>
@@ -109,8 +115,7 @@
             </p>
 
             <div class="card-actions">
-              <a class="btn" href="<%= p.demo %>" <%=p.demo.startsWith('http') ? 'target="_blank" rel="noopener"' : ''
-                %>>Demo</a>
+              <a class="btn" href="<%= p.demo %>" <%=p.demo.startsWith('http') ? 'target="_blank" rel="noopener"' : ''%>>Demo</a>
               <a class="btn" href="#modal-<%= p.id %>" data-modal-open="<%= p.id %>">Details</a>
             </div>
           </article>
