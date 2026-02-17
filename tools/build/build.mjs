@@ -6,7 +6,7 @@ const root = process.cwd();
 
 const p = (...x) => path.join(root, ...x);
 const src = (...x) => p("src", ...x);
-const out = (...x) => p("public", ...x);
+const out = (...x) => p("docs", ...x);
 
 async function rmDirSafe(dir) {
   await fs.rm(dir, { recursive: true, force: true });
@@ -46,7 +46,7 @@ async function write(rel, content) {
 }
 
 async function main() {
-  // Clean public
+  // Clean docs
   await rmDirSafe(out());
 
   // Copy static assets & demos
@@ -65,10 +65,10 @@ async function main() {
   await write("index.html", indexHtml);
 
   console.log("Built:");
-  console.log(" - public/index.html");
-  console.log(" - public/assets");
-  console.log(" - public/demos");
-  console.log(" - public/cv (old copied)");
+  console.log(" - docs/index.html");
+  console.log(" - docs/assets");
+  console.log(" - docs/demos");
+  console.log(" - docs/cv (old copied)");
 }
 
 main().catch((e) => {
