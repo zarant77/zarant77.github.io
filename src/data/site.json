@@ -1,5 +1,8 @@
 {
   "title": "Anton Zarubin | Senior Software Engineer",
   "description": "Anton Zarubin. Senior Software Engineer. CV, demos, links.",
-  "projectsTitle": "Favorite Projects"
+  "projectsTitle": "Favorite Projects",
+  "ogTitle": "Anton Zarubin — Senior Software Engineer",
+  "ogDescription": "Backend / Fullstack · Playable Ads · Performance Engineering",
+  "ogImage": "og-image.jpg"
 }

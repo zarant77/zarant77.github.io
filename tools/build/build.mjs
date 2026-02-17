@@ -59,9 +59,11 @@ async function main() {
   // Shared data
   const contacts = await readJson("data/contacts.json");
   const site = await readJson("data/site.json");
+  const projects = await readJson("data/projects.json");
+  const cv = await readJson("data/cv.json");
 
   // Render landing
-  const indexHtml = await render("index.ejs", { contacts, site });
+  const indexHtml = await render("index.ejs", { contacts, site, projects, cv });
   await write("index.html", indexHtml);
 
   console.log("Built:");

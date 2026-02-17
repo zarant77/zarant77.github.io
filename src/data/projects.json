@@ -1,0 +1,48 @@
+[
+  {
+    "id": "kestrel",
+    "name": "Kestrel Drift",
+    "subtitle": "Drone simulator · wind & payload drop",
+    "logo": "demos/kestrel-drift/logo.png",
+    "demo": "demos/kestrel-drift/",
+    "description": "Drone positioning simulator under gusty wind with payload drop (bomber) simulation.",
+    "details": {
+      "intro": "Simulator focused on positioning stability under gusty wind and payload drop timing/trajectory.",
+      "highlights": [
+        "Gusty wind disturbance model",
+        "Positioning / stabilization training scenarios",
+        "Payload drop mechanics and timing"
+      ],
+      "tech": [
+        "Physics-driven behavior",
+        "Control tuning & training feel",
+        "Performance-oriented update loop"
+      ],
+      "ctaLabel": "Open demo",
+      "ctaUrl": "demos/kestrel-drift/"
+    }
+  },
+  {
+    "id": "hexa",
+    "name": "Hexa Drop",
+    "subtitle": "Unity puzzle · economy & live systems",
+    "logo": "demos/hexa-drop/logo.png",
+    "demo": "https://play.google.com/store/apps/details?id=com.OpenSkies.HexaDrop",
+    "description": "System-driven Unity puzzle game with progression, economy and live mechanics.",
+    "details": {
+      "intro": "Puzzle game built around modular systems: progression, economy, daily tasks and scalable content flow.",
+      "highlights": [
+        "Progression and economy systems",
+        "Daily tasks and live mechanics",
+        "Modular, maintainable architecture"
+      ],
+      "tech": [
+        "Unity 6",
+        "ScriptableObject-driven data",
+        "Performance & UX polish"
+      ],
+      "ctaLabel": "Open on Google Play",
+      "ctaUrl": "https://play.google.com/store/apps/details?id=com.OpenSkies.HexaDrop"
+    }
+  }
+]

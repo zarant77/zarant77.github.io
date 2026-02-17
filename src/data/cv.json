@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Playable Ads CV",
+    "badge": "2017–2022",
+    "text": "Performance-critical HTML5 playables built primarily with TypeScript under strict size and runtime constraints. Includes internal tooling and reusable systems.",
+    "href": "cv/playable.html"
+  },
+  {
+    "title": "Fullstack / Backend CV",
+    "badge": "20+ yrs",
+    "text": "Production backend systems, APIs, databases, architecture and performance engineering. Pragmatic delivery with clean system design.",
+    "href": "cv/backend.html"
+  }
+]
