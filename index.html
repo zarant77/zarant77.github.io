@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Anton Zarubin | Senior Software Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Anton Zarubin. Senior Software Engineer. CV, demos, links.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="header-left">
+        <h1 class="name">Anton Zarubin</h1>
+        <p class="title">Senior Software Engineer</p>
+        <p class="subtitle">Backend / Fullstack · Playable Ads · Performance Engineering</p>
+
+        <div class="header-links">
+          <a class="link" href="https://github.com/zarant77" target="_blank" rel="noopener">GitHub</a>
+          <span class="sep">•</span>
+          <a class="link" href="https://www.linkedin.com/in/zarant77" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <img class="photo" src="assets/img/profile.jpg" alt="Anton Zarubin portrait" loading="lazy">
+      </div>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section class="section">
+      <h2 class="section-title">CV</h2>
+
+      <div class="grid-2">
+        <article class="card">
+          <div class="card-head">
+            <h3 class="card-title">Playable Ads CV</h3>
+            <span class="badge">2017–2022</span>
+          </div>
+          <p class="card-text">
+            High-performance HTML5 playable ads built under strict size and platform constraints. Focus on rendering
+            efficiency, rapid iteration, and delivery reliability for mobile marketing campaigns.
+          </p>
+          <div class="card-actions">
+            <a class="btn" href="cv/playable.html">Open Web</a>
+            <a class="btn" href="cv/playable.pdf">Download PDF</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <h3 class="card-title">Fullstack / Backend CV</h3>
+            <span class="badge">10+ yrs</span>
+          </div>
+          <p class="card-text">
+            Production-grade backend systems, APIs, and fullstack architecture with a focus on clarity, scalability, and
+            performance.
+          </p>
+          <div class="card-actions">
+            <a class="btn" href="cv/backend.html">Open Web</a>
+            <a class="btn" href="cv/backend.pdf">Download PDF</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="grid-2">
+        <article class="card project-card">
+          <div class="project-top">
+            <img class="project-logo" src="demos/kestrel-drift/logo.png" alt="Kestrel Drift logo" loading="lazy">
+            <div class="project-meta">
+              <h3 class="card-title">Kestrel Drift</h3>
+              <p class="muted">Drone simulator · training & controls</p>
+            </div>
+          </div>
+
+          <p class="card-text">
+            Drone positioning simulator under gusty wind conditions with payload drop (bomber) simulation. Focused on
+            physics behavior, control stability, and training realism.
+          </p>
+
+          <div class="card-actions">
+            <a class="btn" href="demos/kestrel-drift/">Demo</a>
+            <a class="btn" href="#modal-kestrel" data-modal-open="kestrel">Details</a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <img class="project-logo" src="demos/hexa-drop/logo.png" alt="Hexa Drop logo" loading="lazy">
+            <div class="project-meta">
+              <h3 class="card-title">Hexa Drop</h3>
+              <p class="muted">Unity puzzle · economy & live systems</p>
+            </div>
+          </div>
+
+          <p class="card-text">
+            System-driven puzzle game with progression, economy, and live mechanics. Built with a modular architecture
+            to support iteration and scalability.
+          </p>
+
+          <div class="card-actions">
+            <a class="btn" href="https://play.google.com/store/apps/details?id=com.OpenSkies.HexaDrop" target="_blank"
+              rel="noopener">
+              Demo
+            </a>
+            <a class="btn" href="#modal-hexa" data-modal-open="hexa">Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="muted small">© <span id="y">2026</span> Anton Zarubin</span>
+      <div class="footer-links">
+        <a class="link" href="https://github.com/zarant77" target="_blank" rel="noopener">GitHub</a>
+        <span class="sep">•</span>
+        <a class="link" href="https://www.linkedin.com/in/zarant77" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+
+  <div class="modal" id="modal-kestrel" hidden>
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="modal-panel">
+      <div class="modal-head">
+        <h3 class="modal-title">Kestrel Drift</h3>
+        <a class="modal-close" href="#" data-modal-close>×</a>
+      </div>
+
+      <div class="modal-body">
+        <p class="muted">
+          Kestrel Drift is a drone positioning simulator designed to model flight stability under gusty wind conditions.
+          Includes payload drop simulation with trajectory prediction and release timing mechanics.
+          The project explores control systems, environmental modeling, and physics-driven behavior for realistic
+          training scenarios.
+        </p>
+      </div>
+
+      <div class="modal-actions">
+        <a class="btn" href="demos/kestrel-drift/">Open demo</a>
+        <a class="btn" href="#" data-modal-close>Close</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-hexa" hidden>
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="modal-panel">
+      <div class="modal-head">
+        <h3 class="modal-title">Hexa Drop</h3>
+        <a class="modal-close" href="#" data-modal-close>×</a>
+      </div>
+
+      <div class="modal-body">
+        <p class="muted">
+          Hexa Drop is a Unity-based puzzle game built around modular gameplay systems.
+          Includes progression mechanics, economy balancing, daily tasks, and live feature integration.
+          Designed with maintainability and extensibility in mind, emphasizing clean system boundaries and scalable
+          architecture.
+        </p>
+      </div>
+
+      <div class="modal-actions">
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.OpenSkies.HexaDrop" target="_blank"
+          rel="noopener">
+          Open on Google Play
+        </a>
+        <a class="btn" href="#" data-modal-close>Close</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>
