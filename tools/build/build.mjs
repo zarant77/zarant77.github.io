@@ -55,13 +55,6 @@ async function write(rel, content) {
   await fs.writeFile(filePath, content, "utf8");
 }
 
-function pickCvLanding(cvObj) {
-  const list = [];
-  if (cvObj?.playable?.landing) list.push(cvObj.playable.landing);
-  if (cvObj?.backend?.landing) list.push(cvObj.backend.landing);
-  return list;
-}
-
 function toFileUrl(absPath) {
   return pathToFileURL(absPath).toString();
 }
@@ -76,6 +69,61 @@ async function cleanDirKeepRoot(dir) {
   );
 }
 
+/**
+ * Load all CV JSON files from src/data/cv/*.json
+ * Each file must contain: { landing: {...}, page: {...} }
+ * Filename becomes slug automatically.
+ */
+async function loadAllCvs() {
+  const dir = src("data", "cv");
+
+  let files = [];
+  try {
+    files = await fs.readdir(dir, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+
+  const cvFiles = files
+    .filter((e) => e.isFile() && e.name.endsWith(".json"))
+    .map((e) => e.name);
+
+  const result = [];
+
+  for (const file of cvFiles) {
+    const fullPath = path.join(dir, file);
+    const data = JSON.parse(await fs.readFile(fullPath, "utf8"));
+
+    const slug = file.replace(".json", "");
+
+    if (!data?.landing || !data?.page) {
+      console.warn(
+        `WARN: CV file "${file}" must contain { landing, page }. Skipping.`,
+      );
+      continue;
+    }
+
+    result.push({
+      slug,
+      landing: {
+        ...data.landing,
+        href: `cv/${slug}.html`,
+        pdf: `cv/${slug}.pdf`,
+      },
+      page: data.page,
+    });
+  }
+
+  // Optional sort by landing.order
+  result.sort((a, b) => {
+    const ao = a.landing?.order ?? 999;
+    const bo = b.landing?.order ?? 999;
+    return ao - bo;
+  });
+
+  return result;
+}
+
 async function buildPdfFromHtml({ htmlAbsPath, pdfAbsPath }) {
   const { chromium } = await import("playwright");
 
@@ -83,7 +131,11 @@ async function buildPdfFromHtml({ htmlAbsPath, pdfAbsPath }) {
   const page = await browser.newPage();
 
   await page.goto(toFileUrl(htmlAbsPath), { waitUntil: "networkidle" });
-  await page.emulateMedia({ media: "screen" });
+
+  // Ensure print CSS is applied + light scheme for PDF
+  await page.emulateMedia({ media: "print", colorScheme: "light" });
+
+  // Optional but keeps layout stable
   await page.setViewportSize({ width: 1280, height: 720 });
 
   await page.pdf({
@@ -96,7 +148,7 @@ async function buildPdfFromHtml({ htmlAbsPath, pdfAbsPath }) {
   await browser.close();
 }
 
-async function tryBuildCvPages({ contacts, cv }) {
+async function tryBuildCvPages({ contacts, cvs }) {
   const cvTemplatePath = src("templates", "cv.ejs");
   const hasCvTemplate = await exists(cvTemplatePath);
 
@@ -107,54 +159,38 @@ async function tryBuildCvPages({ contacts, cv }) {
     return;
   }
 
-  const playablePage = cv?.playable?.page;
-  const backendPage = cv?.backend?.page;
-
-  if (!playablePage || !backendPage) {
+  if (!cvs?.length) {
     console.warn(
-      "WARN: cv.playable.page or cv.backend.page missing — keeping old CVs from cv-old.",
+      "WARN: No CVs found in src/data/cv/*.json — keeping old CVs from cv-old.",
     );
     return;
   }
 
-  const playableHtml = await render("cv.ejs", { contacts, ...playablePage });
-  const backendHtml = await render("cv.ejs", { contacts, ...backendPage });
+  for (const cvItem of cvs) {
+    const html = await render("cv.ejs", { contacts, ...cvItem.page });
 
-  await write("cv/playable.html", playableHtml);
-  await write("cv/backend.html", backendHtml);
+    const htmlRel = `cv/${cvItem.slug}.html`;
+    await write(htmlRel, html);
+    console.log(` - docs/${htmlRel} (generated)`);
 
-  console.log(" - docs/cv/playable.html (generated)");
-  console.log(" - docs/cv/backend.html (generated)");
+    if (process.env.BUILD_PDF === "0") continue;
 
-  // PDF generation (can be disabled via BUILD_PDF=0)
+    try {
+      const htmlAbs = out(htmlRel);
+      const pdfAbs = out(`cv/${cvItem.slug}.pdf`);
+
+      await buildPdfFromHtml({ htmlAbsPath: htmlAbs, pdfAbsPath: pdfAbs });
+      console.log(` - docs/cv/${cvItem.slug}.pdf (generated)`);
+    } catch (e) {
+      console.warn(
+        `WARN: PDF generation failed for "${cvItem.slug}". Make sure playwright + chromium are installed.`,
+      );
+      console.warn(String(e?.message || e));
+    }
+  }
+
   if (process.env.BUILD_PDF === "0") {
     console.log(" - PDF skipped (BUILD_PDF=0)");
-    return;
-  }
-
-  try {
-    const playableHtmlAbs = out("cv/playable.html");
-    const backendHtmlAbs = out("cv/backend.html");
-
-    const playablePdfAbs = out("cv/playable.pdf");
-    const backendPdfAbs = out("cv/backend.pdf");
-
-    await buildPdfFromHtml({
-      htmlAbsPath: playableHtmlAbs,
-      pdfAbsPath: playablePdfAbs,
-    });
-    await buildPdfFromHtml({
-      htmlAbsPath: backendHtmlAbs,
-      pdfAbsPath: backendPdfAbs,
-    });
-
-    console.log(" - docs/cv/playable.pdf (generated)");
-    console.log(" - docs/cv/backend.pdf (generated)");
-  } catch (e) {
-    console.warn(
-      "WARN: PDF generation failed. Make sure playwright + chromium are installed.",
-    );
-    console.warn(String(e?.message || e));
   }
 }
 
@@ -174,10 +210,12 @@ async function main() {
   const contacts = await readJson("data/contacts.json");
   const site = await readJson("data/site.json");
   const projects = await readJson("data/projects.json");
-  const cv = await readJson("data/cv.json");
+
+  // Load CVs from folder
+  const cvs = await loadAllCvs();
 
   // Landing wants an array of CV cards
-  const cvLanding = pickCvLanding(cv);
+  const cvLanding = cvs.map((c) => c.landing);
 
   // Render landing
   const indexHtml = await render("index.ejs", {
@@ -188,8 +226,8 @@ async function main() {
   });
   await write("index.html", indexHtml);
 
-  // Try to build new CV pages from cv.json (overwrites old copies if available)
-  await tryBuildCvPages({ contacts, cv });
+  // Build CV pages (overwrites old copies if available)
+  await tryBuildCvPages({ contacts, cvs });
 
   console.log("Built:");
   console.log(" - docs/index.html");

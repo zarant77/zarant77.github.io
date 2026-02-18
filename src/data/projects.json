@@ -24,8 +24,16 @@
         "Debug instrumentation layer (OSD + telemetry overlay)",
         "Localization system with audit tooling"
       ],
-      "ctaLabel": "Open demo",
-      "ctaUrl": "demos/kestrel-drift/"
+      "urls": [
+        {
+          "title": "3D Demo",
+          "url": "demos/kestrel-drift/"
+        },
+        {
+          "title": "2D Demo",
+          "url": "demos/kestrel-drift/?view=2d"
+        }
+      ]
     }
   },
   {
@@ -47,8 +55,12 @@
         "ScriptableObject-driven data",
         "Performance & UX polish"
       ],
-      "ctaLabel": "Open on Google Play",
-      "ctaUrl": "https://play.google.com/store/apps/details?id=com.OpenSkies.HexaDrop"
+      "urls": [
+        {
+          "title": "Open on Google Play",
+          "url": "https://play.google.com/store/apps/details?id=com.OpenSkies.HexaDrop"
+        }
+      ]
     }
   }
 ]

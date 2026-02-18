@@ -1,0 +1,125 @@
+{
+  "landing": {
+    "title": "Fullstack (Node.js) CV",
+    "badge": "10+ yrs",
+    "text": "Backend-leaning fullstack: Node.js/TypeScript services, data modeling, APIs, plus practical frontend work (responsive UI, internal dashboards).",
+    "order": 2
+  },
+  "page": {
+    "pageTitle": "Anton Zarubin | Fullstack (Node.js) CV",
+    "metaDescription": "Fullstack CV. Node.js, TypeScript, APIs, data modeling, MySQL/PostgreSQL/MongoDB/Redis/Couchbase, plus practical frontend (HTML/CSS, responsive UI, dashboards).",
+    "titleTagline": "Fullstack · Node.js · TypeScript · Architecture · Data Systems",
+    "summary": "Software engineer with 20+ years of programming experience and 10+ years of production Node.js development (since early 0.10 versions). Designed and implemented backend systems using Node.js and TypeScript, with strong emphasis on modular architecture, data modeling and maintainable service design. Experienced in evolving legacy systems and modernizing architecture across different stages of the JavaScript ecosystem.",
+    "sections": [
+      {
+        "title": "Core Technologies",
+        "type": "tags",
+        "items": [
+          "Node.js",
+          "TypeScript",
+          "JavaScript (ES6+)",
+          "REST APIs",
+          "System architecture",
+          "MySQL",
+          "PostgreSQL",
+          "MongoDB",
+          "Redis",
+          "Couchbase",
+          "HTML5",
+          "CSS3",
+          "Responsive layout",
+          "Browser APIs",
+          "Docker",
+          "CI/CD",
+          "Internal tooling"
+        ]
+      },
+      {
+        "title": "Architecture & System Design",
+        "type": "bullets",
+        "items": [
+          "Design of modular architectures with clear separation of concerns",
+          "API design and contract-driven development",
+          "Database schema design and data modeling (SQL + NoSQL)",
+          "Designing systems from scratch based on business requirements",
+          "Technical decision making and architectural ownership"
+        ]
+      },
+      {
+        "title": "Fullstack Scope",
+        "type": "bullets",
+        "items": [
+          "Built internal dashboards and management interfaces for operational workflows",
+          "Implemented responsive layouts with modern CSS and practical UX-focused UI structure",
+          "Worked with browser APIs, client-side validation and integration logic",
+          "Integrated frontend apps with REST backends and authentication/session flows",
+          "Optimized page load and runtime performance in browser environments"
+        ]
+      },
+      {
+        "title": "Professional Experience",
+        "type": "jobs",
+        "jobs": [
+          {
+            "title": "Senior Fullstack Engineer (Node.js / TypeScript)",
+            "meta": "Production Systems · Data Architecture · Internal Platforms",
+            "dates": "Multiple commercial projects",
+            "text": "Designed and implemented backend services, data models and internal fullstack systems across multiple production environments.",
+            "stack": [
+              "Node.js",
+              "TypeScript",
+              "REST",
+              "MySQL",
+              "PostgreSQL",
+              "MongoDB",
+              "Redis",
+              "Couchbase",
+              "HTML",
+              "CSS"
+            ],
+            "blocks": [
+              {
+                "title": "Email Campaign System (Mailchimp-like)",
+                "items": [
+                  "Designed and implemented system architecture for email campaign management",
+                  "Built campaign scheduling and configuration logic",
+                  "Implemented subscriber management and segmentation rules",
+                  "Designed data storage and indexing strategies for large contact datasets",
+                  "Developed internal tools and dashboards for configuration and monitoring"
+                ]
+              },
+              {
+                "title": "Backend & Data Systems",
+                "items": [
+                  "Designed REST APIs and service layers with clean separation of concerns",
+                  "Implemented modular architecture patterns for long-term maintainability",
+                  "Optimized database queries and indexing strategies",
+                  "Built internal automation tools to streamline development and operations"
+                ]
+              },
+              {
+                "title": "Frontend Interfaces",
+                "items": [
+                  "Built responsive UI for internal management workflows",
+                  "Implemented reusable UI components and consistent styling approach",
+                  "Integrated frontend with backend APIs and validation logic"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Engineering Strengths",
+        "type": "bullets",
+        "items": [
+          "Strong architectural thinking and long-term system vision",
+          "Deep understanding of relational and NoSQL data modeling",
+          "Ability to translate business requirements into scalable technical solutions",
+          "Focus on maintainability, clarity and clean structure (both backend and UI)",
+          "Comfortable taking ownership of technical decisions end-to-end"
+        ]
+      }
+    ]
+  }
+}

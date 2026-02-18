@@ -83,7 +83,7 @@
                 <a class="btn" href="<%= item.pdf %>" target="_blank" rel="noopener">
                   Download PDF
                 </a>
-              <% } %>
+                <% } %>
             </div>
           </article>
           <% }) %>
@@ -115,8 +115,15 @@
             </p>
 
             <div class="card-actions">
-              <a class="btn" href="<%= p.demo %>" <%=p.demo.startsWith('http') ? 'target="_blank" rel="noopener"' : ''%>>Demo</a>
-              <a class="btn" href="#modal-<%= p.id %>" data-modal-open="<%= p.id %>">Details</a>
+              <% (p.details?.urls || []).forEach(l=> { %>
+                <a class="btn" target="demo-<%= p.id %>" href="<%= l.url %>">
+                  <%= l.title %>
+                </a>
+                <% }) %>
+
+                  <a class="btn" href="#modal-<%= p.id %>" data-modal-open="<%= p.id %>">
+                    Details
+                  </a>
             </div>
           </article>
           <% }) %>
@@ -181,11 +188,12 @@
         </div>
 
         <div class="modal-actions">
-          <a class="btn" href="<%= p.details?.ctaUrl || p.demo %>" <%=(p.details?.ctaUrl || p.demo).startsWith('http')
-            ? 'target="_blank" rel="noopener"' : '' %>>
-            <%= p.details?.ctaLabel || "Open" %>
-          </a>
-          <a class="btn" href="#" data-modal-close>Close</a>
+          <% (p.details?.urls || []).forEach(l=> { %>
+            <a class="btn" target="demo-<%= p.id %>" href="<%= l.url %>">
+              <%= l.title %>
+            </a>
+            <% }) %>
+              <a class="btn" href="#" data-modal-close>Close</a>
         </div>
       </div>
     </div>

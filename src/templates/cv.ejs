@@ -20,13 +20,9 @@
 
         <div class="cv-contact">
           <a class="cv-link" href="mailto:<%= contacts.email %>"><%= contacts.email %></a>
-          <span class="cv-dot">•</span>
           <a class="cv-link" href="tel:<%= contacts.phone_e164 %>"><%= contacts.phone_display %></a>
-          <span class="cv-dot">•</span>
           <a class="cv-link" href="<%= contacts.site %>"><%= contacts.site.replace('https://','') %></a>
-          <span class="cv-dot">•</span>
           <a class="cv-link" href="<%= contacts.github %>" target="_blank" rel="noopener">GitHub</a>
-          <span class="cv-dot">•</span>
           <a class="cv-link" href="<%= contacts.linkedin %>" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
@@ -75,7 +71,7 @@
                   <% if (j.links && j.links.length) { %>
                     <div style="margin-top: 8px;">
                       <% j.links.forEach((lnk, idx) => { %>
-                        <a class="cv-link" href="<%= lnk.href %>" target="_blank" rel="noopener"><%= lnk.label %></a><% if (idx !== j.links.length - 1) { %><span class="cv-dot">•</span><% } %>
+                        <a class="cv-link" href="<%= lnk.href %>" target="_blank" rel="noopener"><%= lnk.label %></a>
                       <% }) %>
                     </div>
                   <% } %>
