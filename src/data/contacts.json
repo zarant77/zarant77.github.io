@@ -5,7 +5,19 @@
   "email": "anton.zarubin@gmail.com",
   "phone_e164": "+380666251177",
   "phone_display": "+380 666 25 11 77",
-  "site": "https://zarant77.github.io",
-  "github": "https://github.com/zarant77",
-  "linkedin": "https://www.linkedin.com/in/zarant77"
+  "site": "https://zarant77.github.io/",
+  "links": [
+    {
+      "title": "GitHub",
+      "url": "https://github.com/zarant77"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/zarant77"
+    },
+    {
+      "title": "Upwork",
+      "url": "https://www.upwork.com/freelancers/~01d67a6a38050609ab"
+    }
+  ]
 }

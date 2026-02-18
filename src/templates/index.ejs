@@ -45,9 +45,14 @@
         </p>
 
         <div class="header-links">
-          <a class="link" href="<%= contacts.github %>" target="_blank" rel="noopener">GitHub</a>
-          <span class="sep">•</span>
-          <a class="link" href="<%= contacts.linkedin %>" target="_blank" rel="noopener">LinkedIn</a>
+          <% (contacts.links || []).forEach((l, i)=> { %>
+            <a class="link" href="<%= l.url %>" target="_blank" rel="noopener">
+              <%= l.title %>
+            </a>
+            <% if (i < contacts.links.length - 1) { %>
+              <span class="sep">•</span>
+              <% } %>
+                <% }) %>
         </div>
       </div>
 
@@ -138,9 +143,14 @@
         <%= contacts.name %>
       </span>
       <div class="footer-links">
-        <a class="link" href="<%= contacts.github %>" target="_blank" rel="noopener">GitHub</a>
-        <span class="sep">•</span>
-        <a class="link" href="<%= contacts.linkedin %>" target="_blank" rel="noopener">LinkedIn</a>
+        <% (contacts.links || []).forEach((l, i)=> { %>
+          <a class="link" href="<%= l.url %>" target="_blank" rel="noopener">
+            <%= l.title %>
+          </a>
+          <% if (i < contacts.links.length - 1) { %>
+            <span class="sep">•</span>
+            <% } %>
+              <% }) %>
       </div>
     </div>
   </footer>
