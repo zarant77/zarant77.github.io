@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "render": {
+    "renderer": {
+      "shadowMapEnabled": true,
+      "shadowMapType": "PCFSoft",
+      "outputColorSpace": "SRGB",
+      "toneMapping": "ACESFilmic",
+      "toneMappingExposure": 1
+    },
+    "scene": {
+      "backgroundIntensity": 1
+    }
+  },
+  "sun": {
+    "intensity": 4,
+    "castShadow": true,
+    "distance": 1000
+  },
+  "environment": {
+    "intensity": 0.2
+  }
+}

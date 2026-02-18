@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Kestrel Drift</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon-n2TpsUzP.svg" />
+  <script type="module" crossorigin src="./assets/index-DYjWTFVQ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DKEWoFol.css">
+</head>
+
+<body>
+  <canvas id="scene"></canvas>
+  <canvas id="osd"></canvas>
+  <div id="dev"></div>
+
+  <div id="topmenu" class="topbar">
+    <button id="menu-btn" class="icon-btn" data-i18n-title="ui.menu" data-i18n-aria-label="ui.menu" title="Menu"
+      aria-label="Menu">⚙</button>
+    <button id="fullscreen-btn" class="icon-btn" data-i18n-title="ui.fullscreen" data-i18n-aria-label="ui.fullscreen"
+      title="Fullscreen" aria-label="Fullscreen">⛶</button>
+  </div>
+
+  <div id="menu-overlay" data-open="false" role="dialog" aria-modal="true" data-i18n-aria-label="ui.menu"
+    aria-label="Menu">
+    <div id="menu-panel" data-screen="root">
+      <div id="menu-header">
+        <div id="menu-title" data-i18n="app.title">Kestrel Drift</div>
+        <img id="menu-logo" src="./assets/logo-Dtj2M0Q_.svg" data-i18n-alt="app.logo_alt" alt="Kestrel Drift logo" />
+      </div>
+
+      <!-- Screens. Content in /src/ui/menu/screens/<screen>/index.html -->
+      <div class="menu-screen" data-screen="root" id="screen-root"></div>
+      <div class="menu-screen" data-screen="controls" id="screen-controls"></div>
+      <div class="menu-screen" data-screen="settings" id="screen-settings"></div>
+    </div>
+  </div>
+
+  <!-- Splash -->
+  <div id="splash" class="splash" data-i18n-aria-label="ui.loading" aria-label="Loading" role="status">
+    <div class="box">
+      <img class="logo" src="./assets/logo-Dtj2M0Q_.svg" data-i18n-alt="app.logo_alt" alt="Kestrel Drift logo" />
+      <div class="title" data-i18n="app.title">Kestrel Drift</div>
+      <div class="spinner" aria-hidden="true"></div>
+    </div>
+  </div>
+
+</body>
+
+</html>
