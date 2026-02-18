@@ -61,12 +61,38 @@ function pickCvLanding(cvObj) {
   return list;
 }
 
+function toFileUrl(absPath) {
+  const u = new URL("file://");
+  u.pathname = absPath.split(path.sep).join("/");
+  return u.toString();
+}
+
+async function buildPdfFromHtml({ htmlAbsPath, pdfAbsPath }) {
+  const { chromium } = await import("playwright");
+
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+
+  await page.goto(toFileUrl(htmlAbsPath), { waitUntil: "networkidle" });
+
+  await page.pdf({
+    path: pdfAbsPath,
+    format: "A4",
+    printBackground: true,
+    margin: { top: "12mm", right: "12mm", bottom: "12mm", left: "12mm" },
+  });
+
+  await browser.close();
+}
+
 async function tryBuildCvPages({ contacts, cv }) {
   const cvTemplatePath = src("templates", "cv.ejs");
   const hasCvTemplate = await exists(cvTemplatePath);
 
   if (!hasCvTemplate) {
-    console.warn("WARN: src/templates/cv.ejs not found — keeping old CVs from cv-old.");
+    console.warn(
+      "WARN: src/templates/cv.ejs not found — keeping old CVs from cv-old.",
+    );
     return;
   }
 
@@ -74,7 +100,9 @@ async function tryBuildCvPages({ contacts, cv }) {
   const backendPage = cv?.backend?.page;
 
   if (!playablePage || !backendPage) {
-    console.warn("WARN: cv.playable.page or cv.backend.page missing — keeping old CVs from cv-old.");
+    console.warn(
+      "WARN: cv.playable.page or cv.backend.page missing — keeping old CVs from cv-old.",
+    );
     return;
   }
 
@@ -86,6 +114,37 @@ async function tryBuildCvPages({ contacts, cv }) {
 
   console.log(" - docs/cv/playable.html (generated)");
   console.log(" - docs/cv/backend.html (generated)");
+
+  // PDF generation (can be disabled via BUILD_PDF=0)
+  if (process.env.BUILD_PDF === "0") {
+    console.log(" - PDF skipped (BUILD_PDF=0)");
+    return;
+  }
+
+  try {
+    const playableHtmlAbs = out("cv/playable.html");
+    const backendHtmlAbs = out("cv/backend.html");
+
+    const playablePdfAbs = out("cv/playable.pdf");
+    const backendPdfAbs = out("cv/backend.pdf");
+
+    await buildPdfFromHtml({
+      htmlAbsPath: playableHtmlAbs,
+      pdfAbsPath: playablePdfAbs,
+    });
+    await buildPdfFromHtml({
+      htmlAbsPath: backendHtmlAbs,
+      pdfAbsPath: backendPdfAbs,
+    });
+
+    console.log(" - docs/cv/playable.pdf (generated)");
+    console.log(" - docs/cv/backend.pdf (generated)");
+  } catch (e) {
+    console.warn(
+      "WARN: PDF generation failed. Make sure playwright + chromium are installed.",
+    );
+    console.warn(String(e?.message || e));
+  }
 }
 
 async function main() {
@@ -113,7 +172,7 @@ async function main() {
     contacts,
     site,
     projects,
-    cv: cvLanding
+    cv: cvLanding,
   });
   await write("index.html", indexHtml);
 

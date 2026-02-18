@@ -63,6 +63,22 @@
                 <div>
                   <h3 class="cv-h3"><%= j.title %></h3>
                   <p class="cv-meta"><%= j.meta %></p>
+
+                  <% if (j.stack && j.stack.length) { %>
+                    <div class="cv-tags" style="margin-top: 8px;">
+                      <% j.stack.forEach(t => { %>
+                        <span class="cv-tag"><%= t %></span>
+                      <% }) %>
+                    </div>
+                  <% } %>
+
+                  <% if (j.links && j.links.length) { %>
+                    <div style="margin-top: 8px;">
+                      <% j.links.forEach((lnk, idx) => { %>
+                        <a class="cv-link" href="<%= lnk.href %>" target="_blank" rel="noopener"><%= lnk.label %></a><% if (idx !== j.links.length - 1) { %><span class="cv-dot">•</span><% } %>
+                      <% }) %>
+                    </div>
+                  <% } %>
                 </div>
                 <div class="cv-dates"><%= j.dates %></div>
               </div>
@@ -109,7 +125,7 @@
       </section>
     <% }) %>
 
-    <footer class="cv-footer">
+    <footer class="cv-footer no-print">
       <a class="cv-back" href="../index.html">← Back to landing</a>
       <span class="cv-muted">© <span id="y"></span> <%= contacts.name %></span>
     </footer>
