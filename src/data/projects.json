@@ -2,21 +2,27 @@
   {
     "id": "kestrel",
     "name": "Kestrel Drift",
-    "subtitle": "Drone simulator · wind & payload drop",
+    "subtitle": "Deterministic Drone Physics & Positioning Simulator",
     "logo": "demos/kestrel-drift/logo.png",
     "demo": "demos/kestrel-drift/",
-    "description": "Drone positioning simulator under gusty wind with payload drop (bomber) simulation.",
+    "description": "A deterministic, fixed-timestep drone simulator built from scratch to model positioning stability, inertia, gusty wind disturbance, and payload ballistics.",
     "details": {
-      "intro": "Simulator focused on positioning stability under gusty wind and payload drop timing/trajectory.",
+      "intro": "Kestrel Drift is a custom-built drone simulation project focused on realistic control authority, altitude hold, gust modeling, and payload drop validation. The entire physics stack is implemented without external engines, using a force-based motion model and a fully deterministic update loop.",
       "highlights": [
-        "Gusty wind disturbance model",
-        "Positioning / stabilization training scenarios",
-        "Payload drop mechanics and timing"
+        "Custom quadrotor flight model (angle-mode pitch/roll + altitude hold)",
+        "Deterministic gusty wind system (seed-based, overlapping envelopes)",
+        "Force-based motion (acceleration → velocity → position)",
+        "Motor response, inertia and thrust compensation under tilt",
+        "Independent payload physics with quadratic drag and ballistic validation presets",
+        "Strict simulation/render separation (WorldState as single source of truth)"
       ],
       "tech": [
-        "Physics-driven behavior",
-        "Control tuning & training feel",
-        "Performance-oriented update loop"
+        "Fixed timestep deterministic simulation",
+        "Custom math utilities (vec2 / vec3 / deterministic RNG)",
+        "Action-based input binding system with runtime rebinding",
+        "Performance-oriented update loop",
+        "Debug instrumentation layer (OSD + telemetry overlay)",
+        "Localization system with audit tooling"
       ],
       "ctaLabel": "Open demo",
       "ctaUrl": "demos/kestrel-drift/"

@@ -277,13 +277,17 @@ a {
 
 .modal-panel {
   position: relative;
-  width: min(720px, calc(100% - 40px));
+  width: min(var(--max), calc(100% - 40px));
   margin: 60px auto;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: var(--panel);
   box-shadow: var(--shadow);
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 120px);
+  overflow: hidden;
+  padding: 0;
 }
 
 .modal-head {
@@ -291,8 +295,9 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding-bottom: 10px;
+  padding: 16px 20px;
   border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
 }
 
 .modal-title {
@@ -301,15 +306,24 @@ a {
 }
 
 .modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 34px;
   height: 34px;
+
   border-radius: 10px;
   border: 1px solid var(--line2);
   background: rgba(233, 236, 241, 0.06);
+
   color: var(--text);
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: 600;
   line-height: 1;
+
   cursor: pointer;
+  text-decoration: none;
 }
 
 .modal-close:hover {
@@ -318,7 +332,9 @@ a {
 }
 
 .modal-body {
-  padding-top: 12px;
+  padding: 12px 20px 16px;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .modal-grid {
@@ -347,9 +363,11 @@ a {
   display: flex;
   gap: 10px;
   justify-content: flex-end;
-  padding-top: 14px;
+  align-items: center;
+  padding: 12px 20px;
+  min-height: 64px;
   border-top: 1px solid var(--line);
-  margin-top: 14px;
+  flex-shrink: 0;
 }
 
 /* Responsive */

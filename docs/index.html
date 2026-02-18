@@ -128,13 +128,13 @@
                   Kestrel Drift
                 </h3>
                 <p class="muted">
-                  Drone simulator · wind &amp; payload drop
+                  Deterministic Drone Physics &amp; Positioning Simulator
                 </p>
               </div>
             </div>
 
             <p class="card-text">
-              Drone positioning simulator under gusty wind with payload drop (bomber) simulation.
+              A deterministic, fixed-timestep drone simulator built from scratch to model positioning stability, inertia, gusty wind disturbance, and payload ballistics.
             </p>
 
             <div class="card-actions">
@@ -198,7 +198,7 @@
 
         <div class="modal-body">
           <p class="muted">
-            Simulator focused on positioning stability under gusty wind and payload drop timing/trajectory.
+            Kestrel Drift is a custom-built drone simulation project focused on realistic control authority, altitude hold, gust modeling, and payload drop validation. The entire physics stack is implemented without external engines, using a force-based motion model and a fully deterministic update loop.
           </p>
 
           <div class="modal-grid">
@@ -207,15 +207,27 @@
               <ul class="modal-list">
                 
                   <li>
-                    Gusty wind disturbance model
+                    Custom quadrotor flight model (angle-mode pitch/roll + altitude hold)
                   </li>
                   
                   <li>
-                    Positioning / stabilization training scenarios
+                    Deterministic gusty wind system (seed-based, overlapping envelopes)
                   </li>
                   
                   <li>
-                    Payload drop mechanics and timing
+                    Force-based motion (acceleration → velocity → position)
+                  </li>
+                  
+                  <li>
+                    Motor response, inertia and thrust compensation under tilt
+                  </li>
+                  
+                  <li>
+                    Independent payload physics with quadratic drag and ballistic validation presets
+                  </li>
+                  
+                  <li>
+                    Strict simulation/render separation (WorldState as single source of truth)
                   </li>
                   
               </ul>
@@ -226,15 +238,27 @@
               <ul class="modal-list">
                 
                   <li>
-                    Physics-driven behavior
+                    Fixed timestep deterministic simulation
                   </li>
                   
                   <li>
-                    Control tuning &amp; training feel
+                    Custom math utilities (vec2 / vec3 / deterministic RNG)
+                  </li>
+                  
+                  <li>
+                    Action-based input binding system with runtime rebinding
                   </li>
                   
                   <li>
                     Performance-oriented update loop
+                  </li>
+                  
+                  <li>
+                    Debug instrumentation layer (OSD + telemetry overlay)
+                  </li>
+                  
+                  <li>
+                    Localization system with audit tooling
                   </li>
                   
               </ul>

@@ -4,12 +4,17 @@
   "type": "module",
   "scripts": {
     "build": "node tools/build/build.mjs",
-    "serve:docs": "http-server docs -p 8080 -c-1",
-    "preview": "npm run build && npm run serve:docs"
+    "serve": "browser-sync start --server docs --port 8080 --files \"docs/**/*\" --reload-delay 200 --no-open",
+    "watch": "chokidar \"src/**/*\" \"src-static/**/*\" -c \"DEV=1 npm run build\"",
+    "dev": "npm-run-all build --parallel watch serve",
+    "postinstall": "npx playwright install chromium"
   },
   "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "chokidar-cli": "^3.0.0",
     "ejs": "^3.1.10",
     "http-server": "^14.1.1",
+    "npm-run-all": "^4.1.5",
     "playwright": "^1.58.2"
   }
 }

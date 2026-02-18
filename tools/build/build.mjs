@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import ejs from "ejs";
+import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
 
@@ -62,9 +63,17 @@ function pickCvLanding(cvObj) {
 }
 
 function toFileUrl(absPath) {
-  const u = new URL("file://");
-  u.pathname = absPath.split(path.sep).join("/");
-  return u.toString();
+  return pathToFileURL(absPath).toString();
+}
+
+async function cleanDirKeepRoot(dir) {
+  await fs.mkdir(dir, { recursive: true });
+  const entries = await fs.readdir(dir, { withFileTypes: true });
+  await Promise.all(
+    entries.map((e) =>
+      fs.rm(path.join(dir, e.name), { recursive: true, force: true }),
+    ),
+  );
 }
 
 async function buildPdfFromHtml({ htmlAbsPath, pdfAbsPath }) {
@@ -74,6 +83,8 @@ async function buildPdfFromHtml({ htmlAbsPath, pdfAbsPath }) {
   const page = await browser.newPage();
 
   await page.goto(toFileUrl(htmlAbsPath), { waitUntil: "networkidle" });
+  await page.emulateMedia({ media: "screen" });
+  await page.setViewportSize({ width: 1280, height: 720 });
 
   await page.pdf({
     path: pdfAbsPath,
@@ -149,7 +160,8 @@ async function tryBuildCvPages({ contacts, cv }) {
 
 async function main() {
   // Clean docs
-  await rmDirSafe(out());
+  if (process.env.DEV === "1") await cleanDirKeepRoot(out());
+  else await rmDirSafe(out());
 
   // Copy static assets & demos
   await copyDir(p("src-static", "assets"), out("assets"));
