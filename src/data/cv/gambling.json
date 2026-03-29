@@ -1,0 +1,104 @@
+{
+  "landing": {
+    "title": "Gambling Systems CV",
+    "badge": "2023",
+    "text": "Deterministic slot engines, RTP modeling, simulation systems and config-driven game logic architecture.",
+    "href": "cv/gambling.html",
+    "pdf": "cv/gambling.pdf"
+  },
+  "page": {
+    "pageTitle": "Anton Zarubin | Gambling Systems CV",
+    "metaDescription": "Gambling Systems CV. Deterministic slot engines, RTP modeling, simulation systems, backend architecture and performance engineering.",
+    "titleTagline": "Slot Engines · RTP Modeling · Simulation · Deterministic Systems · Backend Architecture",
+    "summary": "Senior Software Engineer focused on deterministic gambling systems, slot engine architecture and simulation-driven balancing. Experience in building config-driven game logic, RTP modeling and large-scale simulation tools with emphasis on predictability, testability and performance.",
+    "sections": [
+      {
+        "title": "Core Technologies",
+        "type": "tags",
+        "items": [
+          "TypeScript",
+          "Node.js",
+          "Deterministic systems",
+          "Game logic architecture",
+          "Simulation systems",
+          "RTP / volatility modeling",
+          "Config-driven design",
+          "CLI tooling",
+          "Performance optimization"
+        ]
+      },
+      {
+        "title": "Gambling Systems Engineering",
+        "type": "bullets",
+        "items": [
+          "Design of deterministic slot engines with reproducible outcomes",
+          "RTP and volatility modeling through simulation",
+          "Config-driven reels, symbols and payout systems",
+          "Large-scale spin simulation and statistical validation",
+          "Strategy testing systems (bet progression, scenarios)",
+          "Separation of game logic from rendering and UI layers"
+        ]
+      },
+      {
+        "title": "Impact",
+        "type": "bullets",
+        "items": [
+          "Built a deterministic slot engine structured for reproducible simulation and balancing",
+          "Designed config-driven logic enabling rapid iteration of reels, payouts and symbol behavior",
+          "Implemented large-scale simulation workflows for RTP and volatility analysis",
+          "Created strategy testing scenarios for validating betting progression behavior"
+        ]
+      },
+      {
+        "title": "Experience",
+        "type": "jobs",
+        "jobs": [
+          {
+            "title": "Gambling Systems Engineer",
+            "meta": "Slot Engine · Simulation · Game Logic Architecture",
+            "dates": "Personal / Showcase Project",
+            "text": "Designed and implemented a deterministic slot engine with full control over configuration, probability and simulation for balancing and testing workflows.",
+            "stack": [
+              "TypeScript",
+              "Node.js",
+              "Deterministic core",
+              "Simulation CLI",
+              "Web client",
+              "Config-driven architecture"
+            ],
+            "links": [],
+            "blocks": [
+              {
+                "title": "CatSpin Arena — Deterministic Slot Engine",
+                "text": "Config-driven slot engine built as a showcase of clean gambling systems architecture.",
+                "items": [
+                  "Implemented deterministic spin logic with no hidden state",
+                  "Separated core game logic from UI and rendering layers",
+                  "Designed modular reels, symbols and payout processing"
+                ]
+              },
+              {
+                "title": "Simulation & RTP Modeling",
+                "text": "Simulation tooling focused on balancing, repeatability and statistics-driven validation.",
+                "items": [
+                  "Developed large-scale simulation runs across thousands of spins",
+                  "Enabled RTP and volatility analysis through reproducible execution",
+                  "Built strategy testing scenarios for bet progression systems"
+                ]
+              },
+              {
+                "title": "Engineering Approach",
+                "text": "Architecture-first implementation focused on predictability and maintainability.",
+                "items": [
+                  "Used config-driven design for rapid balancing iteration",
+                  "Optimized execution flow for batch simulation workloads",
+                  "Prioritized testability, reproducibility and performance"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

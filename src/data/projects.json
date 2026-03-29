@@ -1,5 +1,64 @@
 [
   {
+    "id": "catemup",
+    "name": "Cat ’Em Up",
+    "subtitle": "Deterministic beat ’em up · multi-client architecture",
+    "logo": "demos/cat-em-up/logo.png",
+    "demo": "https://catemup.com/",
+    "description": "Arcade beat ’em up built on a deterministic game core with multi-client rendering (2D, 3D, CLI).",
+    "details": {
+      "intro": "Arcade-style beat ’em up designed as a showcase of clean architecture applied to real-time gameplay systems.",
+      "highlights": [
+        "Deterministic game core (30Hz)",
+        "Snapshot + events rendering model",
+        "Multiple clients: Phaser (2D), Three.js (3D), CLI",
+        "Rendering fully decoupled from game logic"
+      ],
+      "tech": [
+        "TypeScript",
+        "Phaser / Three.js",
+        "Engine-agnostic architecture",
+        "Performance-oriented update loop"
+      ],
+      "urls": [
+        {
+          "title": "View project",
+          "url": "https://catemup.com/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "catspin",
+    "name": "CatSpin Arena",
+    "subtitle": "Deterministic slot engine · RTP simulation · strategy testing",
+    "logo": "demos/catspin-arena/logo.png",
+    "demo": "https://catspin.catemup.com/",
+    "description": "Config-driven slot engine with deterministic core, RTP modeling and large-scale simulation capabilities.",
+    "details": {
+      "intro": "Slot system designed as a deterministic engine with full control over configuration, probability and outcome simulation.",
+      "highlights": [
+        "Deterministic spin logic (no hidden state)",
+        "Config-driven reels, symbols and payouts",
+        "RTP / volatility modeling support",
+        "Large-scale simulation (thousands of spins)",
+        "Strategy testing system (bet progression, scenarios)"
+      ],
+      "tech": [
+        "TypeScript",
+        "Deterministic core architecture",
+        "Simulation CLI + Web client",
+        "Performance-oriented execution"
+      ],
+      "urls": [
+        {
+          "title": "Play demo",
+          "url": "https://catspin.catemup.com/"
+        }
+      ]
+    }
+  },
+  {
     "id": "kestrel",
     "name": "Kestrel Drift",
     "subtitle": "Deterministic Drone Physics & Positioning Simulator",

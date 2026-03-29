@@ -27,6 +27,7 @@
   <meta name="twitter:description" content="Backend / Fullstack · Playable Ads · Performance Engineering">
   <meta name="twitter:image" content="https://zarant77.github.io/assets/img/og-image.jpg">
 
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -107,6 +108,29 @@
           <article class="card">
             <div class="card-head">
               <h3 class="card-title">
+                Gambling Systems CV
+              </h3>
+              <span class="badge">
+                2023
+              </span>
+            </div>
+            <p class="card-text">
+              Deterministic slot engines, RTP modeling, simulation systems and config-driven game logic architecture.
+            </p>
+            <div class="card-actions">
+              <a class="btn" href="cv/gambling.html">Open Web</a>
+
+              
+                <a class="btn" href="cv/gambling.pdf" target="_blank" rel="noopener">
+                  Download PDF
+                </a>
+                
+            </div>
+          </article>
+          
+          <article class="card">
+            <div class="card-head">
+              <h3 class="card-title">
                 Playable Ads CV
               </h3>
               <span class="badge">
@@ -137,6 +161,66 @@
 
       <div class="grid-2">
         
+          <article class="card project-card">
+            <div class="project-top">
+              <img class="project-logo" src="demos/cat-em-up/logo.png" alt="Cat ’Em Up logo" loading="lazy">
+              <div class="project-meta">
+                <h3 class="card-title">
+                  Cat ’Em Up
+                </h3>
+                <p class="muted">
+                  Deterministic beat ’em up · multi-client architecture
+                </p>
+              </div>
+            </div>
+
+            <p class="card-text">
+              Arcade beat ’em up built on a deterministic game core with multi-client rendering (2D, 3D, CLI).
+            </p>
+
+            <div class="card-actions">
+              
+                <a class="btn" target="demo-catemup" href="https://catemup.com/">
+                  View project
+                </a>
+                
+
+                  <a class="btn" href="#modal-catemup" data-modal-open="catemup">
+                    Details
+                  </a>
+            </div>
+          </article>
+          
+          <article class="card project-card">
+            <div class="project-top">
+              <img class="project-logo" src="demos/catspin-arena/logo.png" alt="CatSpin Arena logo" loading="lazy">
+              <div class="project-meta">
+                <h3 class="card-title">
+                  CatSpin Arena
+                </h3>
+                <p class="muted">
+                  Deterministic slot engine · RTP simulation · strategy testing
+                </p>
+              </div>
+            </div>
+
+            <p class="card-text">
+              Config-driven slot engine with deterministic core, RTP modeling and large-scale simulation capabilities.
+            </p>
+
+            <div class="card-actions">
+              
+                <a class="btn" target="demo-catspin" href="https://catspin.catemup.com/">
+                  Play demo
+                </a>
+                
+
+                  <a class="btn" href="#modal-catspin" data-modal-open="catspin">
+                    Details
+                  </a>
+            </div>
+          </article>
+          
           <article class="card project-card">
             <div class="project-top">
               <img class="project-logo" src="demos/kestrel-drift/logo.png" alt="Kestrel Drift logo" loading="lazy">
@@ -238,6 +322,160 @@
 
   <!-- Modals -->
   
+    <div class="modal" id="modal-catemup" hidden>
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-panel">
+        <div class="modal-head">
+          <h3 class="modal-title">
+            Cat ’Em Up
+          </h3>
+          <a class="modal-close" href="#" data-modal-close aria-label="Close">×</a>
+        </div>
+
+        <div class="modal-body">
+          <p class="muted">
+            Arcade-style beat ’em up designed as a showcase of clean architecture applied to real-time gameplay systems.
+          </p>
+
+          <div class="modal-grid">
+            <div>
+              <div class="modal-label">Highlights</div>
+              <ul class="modal-list">
+                
+                  <li>
+                    Deterministic game core (30Hz)
+                  </li>
+                  
+                  <li>
+                    Snapshot + events rendering model
+                  </li>
+                  
+                  <li>
+                    Multiple clients: Phaser (2D), Three.js (3D), CLI
+                  </li>
+                  
+                  <li>
+                    Rendering fully decoupled from game logic
+                  </li>
+                  
+              </ul>
+            </div>
+
+            <div>
+              <div class="modal-label">Tech</div>
+              <ul class="modal-list">
+                
+                  <li>
+                    TypeScript
+                  </li>
+                  
+                  <li>
+                    Phaser / Three.js
+                  </li>
+                  
+                  <li>
+                    Engine-agnostic architecture
+                  </li>
+                  
+                  <li>
+                    Performance-oriented update loop
+                  </li>
+                  
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          
+            <a class="btn" target="demo-catemup" href="https://catemup.com/">
+              View project
+            </a>
+            
+              <a class="btn" href="#" data-modal-close>Close</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal" id="modal-catspin" hidden>
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-panel">
+        <div class="modal-head">
+          <h3 class="modal-title">
+            CatSpin Arena
+          </h3>
+          <a class="modal-close" href="#" data-modal-close aria-label="Close">×</a>
+        </div>
+
+        <div class="modal-body">
+          <p class="muted">
+            Slot system designed as a deterministic engine with full control over configuration, probability and outcome simulation.
+          </p>
+
+          <div class="modal-grid">
+            <div>
+              <div class="modal-label">Highlights</div>
+              <ul class="modal-list">
+                
+                  <li>
+                    Deterministic spin logic (no hidden state)
+                  </li>
+                  
+                  <li>
+                    Config-driven reels, symbols and payouts
+                  </li>
+                  
+                  <li>
+                    RTP / volatility modeling support
+                  </li>
+                  
+                  <li>
+                    Large-scale simulation (thousands of spins)
+                  </li>
+                  
+                  <li>
+                    Strategy testing system (bet progression, scenarios)
+                  </li>
+                  
+              </ul>
+            </div>
+
+            <div>
+              <div class="modal-label">Tech</div>
+              <ul class="modal-list">
+                
+                  <li>
+                    TypeScript
+                  </li>
+                  
+                  <li>
+                    Deterministic core architecture
+                  </li>
+                  
+                  <li>
+                    Simulation CLI + Web client
+                  </li>
+                  
+                  <li>
+                    Performance-oriented execution
+                  </li>
+                  
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          
+            <a class="btn" target="demo-catspin" href="https://catspin.catemup.com/">
+              Play demo
+            </a>
+            
+              <a class="btn" href="#" data-modal-close>Close</a>
+        </div>
+      </div>
+    </div>
+    
     <div class="modal" id="modal-kestrel" hidden>
       <div class="modal-backdrop" data-modal-close></div>
       <div class="modal-panel">
