@@ -240,13 +240,13 @@ a {
 }
 
 .project-logo {
-  width: 44px;
-  height: 44px;
+  width: 64px;
+  height: 64px;
   object-fit: contain;
   border-radius: 12px;
   border: 1px solid var(--line);
   background: rgba(233, 236, 241, 0.05);
-  padding: 6px;
+  padding: 4px;
   flex: 0 0 auto;
 }
 
@@ -353,6 +353,19 @@ a {
   padding: 12px 20px 16px;
   overflow-y: auto;
   flex: 1;
+}
+
+.modal-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.modal-logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
 }
 
 .modal-grid {

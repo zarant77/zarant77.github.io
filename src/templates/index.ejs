@@ -83,7 +83,7 @@
               <%= item.text %>
             </p>
             <div class="card-actions">
-              <a class="btn" href="<%= item.href %>">Open Web</a>
+              <a class="btn" href="<%= item.href %>" target="_blank">Open Web</a>
 
               <% if (item.pdf) { %>
                 <a class="btn" href="<%= item.pdf %>" target="_blank" rel="noopener">
@@ -169,9 +169,13 @@
         </div>
 
         <div class="modal-body">
-          <p class="muted">
-            <%= p.details?.intro || p.description %>
-          </p>
+          <div class="modal-intro">
+            <img class="modal-logo" src="<%= p.logo %>" alt="<%= p.name %> logo" loading="lazy">
+
+            <p class="muted">
+              <%= p.details?.intro || p.description %>
+            </p>
+          </div>
 
           <div class="modal-grid">
             <div>

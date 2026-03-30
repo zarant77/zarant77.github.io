@@ -95,7 +95,7 @@
               Backend-leaning fullstack: Node.js/TypeScript services, data modeling, APIs, plus practical frontend work (responsive UI, internal dashboards).
             </p>
             <div class="card-actions">
-              <a class="btn" href="cv/fullstack.html">Open Web</a>
+              <a class="btn" href="cv/fullstack.html" target="_blank">Open Web</a>
 
               
                 <a class="btn" href="cv/fullstack.pdf" target="_blank" rel="noopener">
@@ -118,7 +118,7 @@
               Deterministic slot engines, RTP modeling, simulation systems and config-driven game logic architecture.
             </p>
             <div class="card-actions">
-              <a class="btn" href="cv/gambling.html">Open Web</a>
+              <a class="btn" href="cv/gambling.html" target="_blank">Open Web</a>
 
               
                 <a class="btn" href="cv/gambling.pdf" target="_blank" rel="noopener">
@@ -141,7 +141,7 @@
               Performance-critical HTML5 playables built primarily with TypeScript under strict size and runtime constraints. Includes internal tooling, reusable systems and platform-level contributions.
             </p>
             <div class="card-actions">
-              <a class="btn" href="cv/playable.html">Open Web</a>
+              <a class="btn" href="cv/playable.html" target="_blank">Open Web</a>
 
               
                 <a class="btn" href="cv/playable.pdf" target="_blank" rel="noopener">
@@ -163,25 +163,59 @@
         
           <article class="card project-card">
             <div class="project-top">
+              <img class="project-logo" src="demos/kestrel-drift/logo.png" alt="Kestrel Drift logo" loading="lazy">
+              <div class="project-meta">
+                <h3 class="card-title">
+                  Kestrel Drift
+                </h3>
+                <p class="muted">
+                  Drone physics simulator · control, wind &amp; payload dynamics
+                </p>
+              </div>
+            </div>
+
+            <p class="card-text">
+              Fixed-timestep drone simulator built from scratch to model positioning stability, inertia, gusty wind disturbance and payload ballistics.
+            </p>
+
+            <div class="card-actions">
+              
+                <a class="btn" target="demo-kestrel" href="demos/kestrel-drift/">
+                  Try 3D Demo
+                </a>
+                
+                <a class="btn" target="demo-kestrel" href="demos/kestrel-drift/?view=2d">
+                  Try 2D Demo
+                </a>
+                
+
+                  <a class="btn" href="#modal-kestrel" data-modal-open="kestrel">
+                    Details
+                  </a>
+            </div>
+          </article>
+          
+          <article class="card project-card">
+            <div class="project-top">
               <img class="project-logo" src="demos/cat-em-up/logo.png" alt="Cat ’Em Up logo" loading="lazy">
               <div class="project-meta">
                 <h3 class="card-title">
                   Cat ’Em Up
                 </h3>
                 <p class="muted">
-                  Deterministic beat ’em up · multi-client architecture
+                  Arcade beat ’em up · multi-client rendering architecture
                 </p>
               </div>
             </div>
 
             <p class="card-text">
-              Arcade beat ’em up built on a deterministic game core with multi-client rendering (2D, 3D, CLI).
+              Arcade beat ’em up built on a deterministic game core with multi-client rendering and clean system architecture.
             </p>
 
             <div class="card-actions">
               
                 <a class="btn" target="demo-catemup" href="https://catemup.com/">
-                  View project
+                  Open Project
                 </a>
                 
 
@@ -199,7 +233,7 @@
                   CatSpin Arena
                 </h3>
                 <p class="muted">
-                  Deterministic slot engine · RTP simulation · strategy testing
+                  Slot engine · RTP modeling · simulation &amp; strategy testing
                 </p>
               </div>
             </div>
@@ -211,45 +245,11 @@
             <div class="card-actions">
               
                 <a class="btn" target="demo-catspin" href="https://catspin.catemup.com/">
-                  Play demo
+                  Run Simulation
                 </a>
                 
 
                   <a class="btn" href="#modal-catspin" data-modal-open="catspin">
-                    Details
-                  </a>
-            </div>
-          </article>
-          
-          <article class="card project-card">
-            <div class="project-top">
-              <img class="project-logo" src="demos/kestrel-drift/logo.png" alt="Kestrel Drift logo" loading="lazy">
-              <div class="project-meta">
-                <h3 class="card-title">
-                  Kestrel Drift
-                </h3>
-                <p class="muted">
-                  Deterministic Drone Physics &amp; Positioning Simulator
-                </p>
-              </div>
-            </div>
-
-            <p class="card-text">
-              A deterministic, fixed-timestep drone simulator built from scratch to model positioning stability, inertia, gusty wind disturbance, and payload ballistics.
-            </p>
-
-            <div class="card-actions">
-              
-                <a class="btn" target="demo-kestrel" href="demos/kestrel-drift/">
-                  3D Demo
-                </a>
-                
-                <a class="btn" target="demo-kestrel" href="demos/kestrel-drift/?view=2d">
-                  2D Demo
-                </a>
-                
-
-                  <a class="btn" href="#modal-kestrel" data-modal-open="kestrel">
                     Details
                   </a>
             </div>
@@ -263,13 +263,13 @@
                   Hexa Drop
                 </h3>
                 <p class="muted">
-                  Unity puzzle · economy &amp; live systems
+                  Unity puzzle platform · progression, economy &amp; live systems
                 </p>
               </div>
             </div>
 
             <p class="card-text">
-              System-driven Unity puzzle game with progression, economy and live mechanics.
+              System-driven Unity puzzle game built around scalable progression, economy and live mechanics.
             </p>
 
             <div class="card-actions">
@@ -322,6 +322,105 @@
 
   <!-- Modals -->
   
+    <div class="modal" id="modal-kestrel" hidden>
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-panel">
+        <div class="modal-head">
+          <h3 class="modal-title">
+            Kestrel Drift
+          </h3>
+          <a class="modal-close" href="#" data-modal-close aria-label="Close">×</a>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-intro">
+            <img class="modal-logo" src="demos/kestrel-drift/logo.png" alt="Kestrel Drift logo" loading="lazy">
+
+            <p class="muted">
+              Kestrel Drift is a custom-built drone simulation project focused on realistic control authority, altitude hold, gust modeling and payload drop validation. The entire physics stack is implemented without external engines, using a force-based motion model and a deterministic update loop.
+            </p>
+          </div>
+
+          <div class="modal-grid">
+            <div>
+              <div class="modal-label">Highlights</div>
+              <ul class="modal-list">
+                
+                  <li>
+                    Custom quadrotor flight model (angle-mode pitch/roll + altitude hold)
+                  </li>
+                  
+                  <li>
+                    Seed-based gusty wind system with overlapping envelopes
+                  </li>
+                  
+                  <li>
+                    Force-based motion (acceleration → velocity → position)
+                  </li>
+                  
+                  <li>
+                    Motor response, inertia and thrust compensation under tilt
+                  </li>
+                  
+                  <li>
+                    Independent payload physics with quadratic drag and ballistic validation presets
+                  </li>
+                  
+                  <li>
+                    Strict simulation/render separation (WorldState as single source of truth)
+                  </li>
+                  
+              </ul>
+            </div>
+
+            <div>
+              <div class="modal-label">Tech</div>
+              <ul class="modal-list">
+                
+                  <li>
+                    Fixed timestep simulation
+                  </li>
+                  
+                  <li>
+                    Custom math utilities (vec2 / vec3 / deterministic RNG)
+                  </li>
+                  
+                  <li>
+                    Action-based input binding system with runtime rebinding
+                  </li>
+                  
+                  <li>
+                    Performance-oriented update loop
+                  </li>
+                  
+                  <li>
+                    Debug instrumentation layer (OSD + telemetry overlay)
+                  </li>
+                  
+                  <li>
+                    Localization system with audit tooling
+                  </li>
+                  
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          
+            <a class="btn" target="demo-kestrel" href="demos/kestrel-drift/">
+              Try 3D Demo
+            </a>
+            
+            <a class="btn" target="demo-kestrel" href="demos/kestrel-drift/?view=2d">
+              Try 2D Demo
+            </a>
+            
+              <a class="btn" href="#" data-modal-close>Close</a>
+        </div>
+      </div>
+    </div>
+    
     <div class="modal" id="modal-catemup" hidden>
       <div class="modal-backdrop" data-modal-close></div>
       <div class="modal-panel">
@@ -333,9 +432,13 @@
         </div>
 
         <div class="modal-body">
-          <p class="muted">
-            Arcade-style beat ’em up designed as a showcase of clean architecture applied to real-time gameplay systems.
-          </p>
+          <div class="modal-intro">
+            <img class="modal-logo" src="demos/cat-em-up/logo.png" alt="Cat ’Em Up logo" loading="lazy">
+
+            <p class="muted">
+              A high-energy side-scrolling beat ’em up inspired by classic arcade machines and 80s neon culture. Players fight through fast-paced encounters driven by timing, positioning and impact, with a strong focus on clarity and responsiveness. Under the hood, the game is powered by a deterministic engine with decoupled rendering, demonstrating clean and reusable game system architecture.
+            </p>
+          </div>
 
           <div class="modal-grid">
             <div>
@@ -389,7 +492,7 @@
         <div class="modal-actions">
           
             <a class="btn" target="demo-catemup" href="https://catemup.com/">
-              View project
+              Open Project
             </a>
             
               <a class="btn" href="#" data-modal-close>Close</a>
@@ -408,9 +511,13 @@
         </div>
 
         <div class="modal-body">
-          <p class="muted">
-            Slot system designed as a deterministic engine with full control over configuration, probability and outcome simulation.
-          </p>
+          <div class="modal-intro">
+            <img class="modal-logo" src="demos/catspin-arena/logo.png" alt="CatSpin Arena logo" loading="lazy">
+
+            <p class="muted">
+              Slot system designed as a deterministic engine with full control over configuration, probability and outcome simulation.
+            </p>
+          </div>
 
           <div class="modal-grid">
             <div>
@@ -468,102 +575,7 @@
         <div class="modal-actions">
           
             <a class="btn" target="demo-catspin" href="https://catspin.catemup.com/">
-              Play demo
-            </a>
-            
-              <a class="btn" href="#" data-modal-close>Close</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="modal" id="modal-kestrel" hidden>
-      <div class="modal-backdrop" data-modal-close></div>
-      <div class="modal-panel">
-        <div class="modal-head">
-          <h3 class="modal-title">
-            Kestrel Drift
-          </h3>
-          <a class="modal-close" href="#" data-modal-close aria-label="Close">×</a>
-        </div>
-
-        <div class="modal-body">
-          <p class="muted">
-            Kestrel Drift is a custom-built drone simulation project focused on realistic control authority, altitude hold, gust modeling, and payload drop validation. The entire physics stack is implemented without external engines, using a force-based motion model and a fully deterministic update loop.
-          </p>
-
-          <div class="modal-grid">
-            <div>
-              <div class="modal-label">Highlights</div>
-              <ul class="modal-list">
-                
-                  <li>
-                    Custom quadrotor flight model (angle-mode pitch/roll + altitude hold)
-                  </li>
-                  
-                  <li>
-                    Deterministic gusty wind system (seed-based, overlapping envelopes)
-                  </li>
-                  
-                  <li>
-                    Force-based motion (acceleration → velocity → position)
-                  </li>
-                  
-                  <li>
-                    Motor response, inertia and thrust compensation under tilt
-                  </li>
-                  
-                  <li>
-                    Independent payload physics with quadratic drag and ballistic validation presets
-                  </li>
-                  
-                  <li>
-                    Strict simulation/render separation (WorldState as single source of truth)
-                  </li>
-                  
-              </ul>
-            </div>
-
-            <div>
-              <div class="modal-label">Tech</div>
-              <ul class="modal-list">
-                
-                  <li>
-                    Fixed timestep deterministic simulation
-                  </li>
-                  
-                  <li>
-                    Custom math utilities (vec2 / vec3 / deterministic RNG)
-                  </li>
-                  
-                  <li>
-                    Action-based input binding system with runtime rebinding
-                  </li>
-                  
-                  <li>
-                    Performance-oriented update loop
-                  </li>
-                  
-                  <li>
-                    Debug instrumentation layer (OSD + telemetry overlay)
-                  </li>
-                  
-                  <li>
-                    Localization system with audit tooling
-                  </li>
-                  
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-actions">
-          
-            <a class="btn" target="demo-kestrel" href="demos/kestrel-drift/">
-              3D Demo
-            </a>
-            
-            <a class="btn" target="demo-kestrel" href="demos/kestrel-drift/?view=2d">
-              2D Demo
+              Run Simulation
             </a>
             
               <a class="btn" href="#" data-modal-close>Close</a>
@@ -582,9 +594,13 @@
         </div>
 
         <div class="modal-body">
-          <p class="muted">
-            Puzzle game built around modular systems: progression, economy, daily tasks and scalable content flow.
-          </p>
+          <div class="modal-intro">
+            <img class="modal-logo" src="demos/hexa-drop/logo.png" alt="Hexa Drop logo" loading="lazy">
+
+            <p class="muted">
+              Puzzle game built around modular systems: progression, economy, daily tasks and scalable content flow.
+            </p>
+          </div>
 
           <div class="modal-grid">
             <div>
