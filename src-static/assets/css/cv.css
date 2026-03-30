@@ -295,6 +295,10 @@ a {
   }
 }
 
+.cv-link-print {
+  display: none;
+}
+
 /* Print / PDF */
 @media print {
   :root {
@@ -379,6 +383,15 @@ a {
 
   .cv-main {
     padding: 0 !important;
+  }
+
+  .cv-link {
+    display: none;
+  }
+
+  .cv-link-print {
+    display: block;
+    margin-top: 4px;
   }
 }
 
