@@ -9,10 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="<%= site.description %>">
 
-  <!-- Canonical -->
   <link rel="canonical" href="<%= contacts.site %>">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="<%= site.ogTitle || (contacts.name + ' — ' + contacts.role) %>">
   <meta property="og:description" content="<%= site.ogDescription || site.description %>">
@@ -21,7 +19,6 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="<%= site.ogTitle || (contacts.name + ' — ' + contacts.role) %>">
   <meta name="twitter:description" content="<%= site.ogDescription || site.description %>">
@@ -38,12 +35,26 @@
         <h1 class="name">
           <%= contacts.name %>
         </h1>
+
         <p class="title">
           <%= contacts.role %>
         </p>
+
         <p class="subtitle">
           <%= contacts.tagline %>
         </p>
+
+        <div class="header-contacts">
+          <a class="link subtle" href="mailto:<%= contacts.email %>">
+            <%= contacts.email %>
+          </a>
+
+          <span class="sep">•</span>
+
+          <a class="link subtle" href="tel:<%= contacts.phone_e164 %>">
+            <%= contacts.phone_display %>
+          </a>
+        </div>
 
         <div class="header-links">
           <% (contacts.links || []).forEach((l, i)=> { %>
@@ -64,7 +75,6 @@
   </header>
 
   <main class="container main">
-
     <section class="section">
       <h2 class="section-title">CV</h2>
 
@@ -79,11 +89,13 @@
                 <%= item.badge %>
               </span>
             </div>
+
             <p class="card-text">
               <%= item.text %>
             </p>
+
             <div class="card-actions">
-              <a class="btn" href="<%= item.href %>" target="_blank">Open Web</a>
+              <a class="btn btn-primary" href="<%= item.href %>" target="_blank">Open Web</a>
 
               <% if (item.pdf) { %>
                 <a class="btn" href="<%= item.pdf %>" target="_blank" rel="noopener">
@@ -106,6 +118,7 @@
           <article class="card project-card">
             <div class="project-top">
               <img class="project-logo" src="<%= p.logo %>" alt="<%= p.name %> logo" loading="lazy">
+
               <div class="project-meta">
                 <h3 class="card-title">
                   <%= p.name %>
@@ -121,13 +134,13 @@
             </p>
 
             <div class="card-actions">
-              <% (p.details?.urls || []).forEach(l=> { %>
-                <a class="btn" target="demo-<%= p.id %>" href="<%= l.url %>">
+              <% (p.details?.urls || []).forEach((l, index)=> { %>
+                <a class="btn <%= index === 0 ? 'btn-primary' : '' %>" target="demo-<%= p.id %>" href="<%= l.url %>">
                   <%= l.title %>
                 </a>
                 <% }) %>
 
-                  <a class="btn" href="#modal-<%= p.id %>" data-modal-open="<%= p.id %>">
+                  <a class="btn btn-ghost btn-details" href="#modal-<%= p.id %>" data-modal-open="<%= p.id %>">
                     Details
                   </a>
             </div>
@@ -135,7 +148,6 @@
           <% }) %>
       </div>
     </section>
-
   </main>
 
   <footer class="footer">
@@ -143,6 +155,7 @@
       <span class="muted small">© <span id="y">2026</span>
         <%= contacts.name %>
       </span>
+
       <div class="footer-links">
         <% (contacts.links || []).forEach((l, i)=> { %>
           <a class="link" href="<%= l.url %>" target="_blank" rel="noopener">
@@ -156,10 +169,10 @@
     </div>
   </footer>
 
-  <!-- Modals -->
   <% projects.forEach(p=> { %>
     <div class="modal" id="modal-<%= p.id %>" hidden>
       <div class="modal-backdrop" data-modal-close></div>
+
       <div class="modal-panel">
         <div class="modal-head">
           <h3 class="modal-title">
@@ -203,12 +216,13 @@
         </div>
 
         <div class="modal-actions">
-          <% (p.details?.urls || []).forEach(l=> { %>
-            <a class="btn" target="demo-<%= p.id %>" href="<%= l.url %>">
+          <% (p.details?.urls || []).forEach((l, index)=> { %>
+            <a class="btn <%= index === 0 ? 'btn-primary' : '' %>" target="demo-<%= p.id %>" href="<%= l.url %>">
               <%= l.title %>
             </a>
             <% }) %>
-              <a class="btn" href="#" data-modal-close>Close</a>
+
+              <a class="btn btn-ghost" href="#" data-modal-close>Close</a>
         </div>
       </div>
     </div>

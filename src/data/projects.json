@@ -26,12 +26,16 @@
       ],
       "urls": [
         {
-          "title": "Try 3D Demo",
+          "title": "3D Demo",
           "url": "demos/kestrel-drift/"
         },
         {
-          "title": "Try 2D Demo",
+          "title": "2D Demo",
           "url": "demos/kestrel-drift/?view=2d"
+        },
+        {
+          "title": "View GitHub",
+          "url": "https://github.com/zarant77/kestrel-drift-docs"
         }
       ]
     }
@@ -59,8 +63,12 @@
       ],
       "urls": [
         {
-          "title": "Open Project",
+          "title": "Project Page",
           "url": "https://catemup.com/"
+        },
+        {
+          "title": "View GitHub",
+          "url": "https://github.com/cat-em-up/cat-em-up"
         }
       ]
     }
@@ -73,7 +81,7 @@
     "demo": "https://catspin.catemup.com/",
     "description": "Config-driven slot engine with deterministic core, RTP modeling and large-scale simulation capabilities.",
     "details": {
-      "intro": "Slot system designed as a deterministic engine with full control over configuration, probability and outcome simulation.",
+      "intro": "Multiplayer slot system built on a fully deterministic engine with reproducible outcomes, config-driven logic and large-scale simulation capabilities. Supports RTP/volatility modeling, strategy testing and real-time multi-client interaction.",
       "highlights": [
         "Deterministic spin logic (no hidden state)",
         "Config-driven reels, symbols and payouts",
@@ -89,8 +97,12 @@
       ],
       "urls": [
         {
-          "title": "Run Simulation",
+          "title": "Play Demo",
           "url": "https://catspin.catemup.com/"
+        },
+        {
+          "title": "View GitHub",
+          "url": "https://github.com/cat-em-up/catspin-arena"
         }
       ]
     }
