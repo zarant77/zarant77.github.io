@@ -7,7 +7,7 @@
     Anton Zarubin | Gambling Systems CV
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gambling Systems CV. Deterministic slot engines, RTP modeling, simulation systems, backend architecture and performance engineering." />
+  <meta name="description" content="Deterministic slot engines, multiplayer architecture, RTP modeling, simulation systems and backend performance engineering." />
   <link rel="stylesheet" href="../assets/css/cv.css" />
 </head>
 
@@ -23,7 +23,7 @@
             Senior Software Engineer
           </p>
           <p class="cv-tagline">
-            Slot Engines · RTP Modeling · Simulation · Deterministic Systems · Backend Architecture
+            Slot Engines · RTP Modeling · Simulation · Deterministic Systems · Multiplayer Architecture
           </p>
         </div>
 
@@ -71,7 +71,7 @@
       
         <div class="cv-summary">
           <p>
-            Senior Software Engineer focused on deterministic gambling systems, slot engine architecture and simulation-driven balancing. Experience in building config-driven game logic, RTP modeling and large-scale simulation tools with emphasis on predictability, testability and performance.
+            Senior Software Engineer focused on deterministic gambling systems, slot engine architecture and simulation-driven balancing. Experience in building reproducible, config-driven game logic systems with real-time multi-client support, RTP/volatility modeling and large-scale simulation tooling. Strong focus on predictability, testability and performance.
           </p>
         </div>
         
@@ -100,6 +100,10 @@
                               
                               <span class="cv-tag">
                                 Node.js
+                              </span>
+                              
+                              <span class="cv-tag">
+                                Phaser 3
                               </span>
                               
                               <span class="cv-tag">
@@ -146,11 +150,7 @@
               <ul class="cv-list">
                 
                   <li>
-                    Design of deterministic slot engines with reproducible outcomes
-                  </li>
-                  
-                  <li>
-                    RTP and volatility modeling through simulation
+                    Design of deterministic slot engines with reproducible outcomes and no hidden state
                   </li>
                   
                   <li>
@@ -158,7 +158,15 @@
                   </li>
                   
                   <li>
-                    Large-scale spin simulation and statistical validation
+                    RTP and volatility modeling through large-scale simulation
+                  </li>
+                  
+                  <li>
+                    Real-time multi-client architecture (CLI + Web client)
+                  </li>
+                  
+                  <li>
+                    Separation of game logic from rendering and UI layers
                   </li>
                   
                   <li>
@@ -166,7 +174,50 @@
                   </li>
                   
                   <li>
-                    Separation of game logic from rendering and UI layers
+                    Deterministic spin resolution pipeline (bet → spin → outcome → payout)
+                  </li>
+                  
+              </ul>
+              
+
+                
+
+                        
+
+      </section>
+      
+      <section class="cv-section">
+        <h2 class="cv-h2">
+          Slot System Features
+        </h2>
+
+        
+
+            
+              <ul class="cv-list">
+                
+                  <li>
+                    Reel-based slot architecture with configurable symbol distribution
+                  </li>
+                  
+                  <li>
+                    Modular symbol pipeline and payout evaluation system
+                  </li>
+                  
+                  <li>
+                    Support for multiple RTP/volatility profiles via configuration
+                  </li>
+                  
+                  <li>
+                    Reproducible simulation runs using deterministic RNG
+                  </li>
+                  
+                  <li>
+                    Integration-ready core independent from rendering layer
+                  </li>
+                  
+                  <li>
+                    Scalable simulation execution (10k–100k+ spins per run)
                   </li>
                   
               </ul>
@@ -193,15 +244,19 @@
                   </li>
                   
                   <li>
-                    Designed config-driven logic enabling rapid iteration of reels, payouts and symbol behavior
+                    Enabled rapid iteration of reels, payouts and symbol behavior through config-driven design
                   </li>
                   
                   <li>
-                    Implemented large-scale simulation workflows for RTP and volatility analysis
+                    Implemented large-scale simulation workflows for RTP and volatility validation
                   </li>
                   
                   <li>
-                    Created strategy testing scenarios for validating betting progression behavior
+                    Designed system architecture supporting multiple clients consuming the same core logic
+                  </li>
+                  
+                  <li>
+                    Eliminated hidden state to guarantee reproducibility and testability
                   </li>
                   
               </ul>
@@ -231,7 +286,7 @@
                             Gambling Systems Engineer
                           </h3>
                           <p class="cv-meta">
-                            Slot Engine · Simulation · Game Logic Architecture
+                            Slot Engine · Simulation · Multiplayer Architecture · Game Logic
                           </p>
 
                           
@@ -243,6 +298,10 @@
                                 
                                 <span class="cv-tag">
                                   Node.js
+                                </span>
+                                
+                                <span class="cv-tag">
+                                  Phaser 3
                                 </span>
                                 
                                 <span class="cv-tag">
@@ -273,7 +332,7 @@
 
                       
                         <p class="cv-p">
-                          Designed and implemented a deterministic slot engine with full control over configuration, probability and simulation for balancing and testing workflows.
+                          Designed and implemented a deterministic multiplayer slot engine with full control over configuration, probability and simulation for balancing, testing and system experimentation.
                         </p>
                         
 
@@ -283,23 +342,57 @@
                                 
                                   <div class="cv-subblock">
                                     <div class="cv-subtitle">
-                                      CatSpin Arena — Deterministic Slot Engine
+                                      CatSpin Arena — Deterministic Multiplayer Slot Engine
                                     </div>
                                     
                                       <p class="cv-p">
-                                        Config-driven slot engine built as a showcase of clean gambling systems architecture.
+                                        Multiplayer slot engine built on a deterministic core with reproducible outcomes and no hidden state.
                                       </p>
                                       
                                         
                                           <ul class="cv-list">
                                             <li>
-                                                Implemented deterministic spin logic with no hidden state
+                                                Implemented deterministic spin logic ensuring reproducible outcomes across all clients
+                                              </li>
+                                              <li>
+                                                Designed real-time multi-client architecture (CLI + Web)
                                               </li>
                                               <li>
                                                 Separated core game logic from UI and rendering layers
                                               </li>
                                               <li>
-                                                Designed modular reels, symbols and payout processing
+                                                Built config-driven reels, symbols and payout evaluation pipeline
+                                              </li>
+                                              
+                                          </ul>
+                                          
+                                  </div>
+                                  
+                                  <div class="cv-subblock">
+                                    <div class="cv-subtitle">
+                                      Slot Implementation (Phaser)
+                                    </div>
+                                    
+                                      <p class="cv-p">
+                                        Built multiple slot prototypes using Phaser 3 with reel systems and spin flow logic integrated with deterministic backend.
+                                      </p>
+                                      
+                                        
+                                          <ul class="cv-list">
+                                            <li>
+                                                Implemented reel generation and symbol distribution based on config-driven data
+                                              </li>
+                                              <li>
+                                                Built spin lifecycle (bet → spin → resolve → payout)
+                                              </li>
+                                              <li>
+                                                Integrated frontend rendering with deterministic engine
+                                              </li>
+                                              <li>
+                                                Designed modular reel and symbol systems for rapid iteration
+                                              </li>
+                                              <li>
+                                                Handled animation timing, easing and visual feedback
                                               </li>
                                               
                                           </ul>
@@ -312,19 +405,22 @@
                                     </div>
                                     
                                       <p class="cv-p">
-                                        Simulation tooling focused on balancing, repeatability and statistics-driven validation.
+                                        Simulation tooling for balancing, validation and statistical analysis.
                                       </p>
                                       
                                         
                                           <ul class="cv-list">
                                             <li>
-                                                Developed large-scale simulation runs across thousands of spins
+                                                Developed CLI-based simulation system (10k–100k+ spins per run)
                                               </li>
                                               <li>
-                                                Enabled RTP and volatility analysis through reproducible execution
+                                                Enabled RTP and volatility analysis through deterministic execution
                                               </li>
                                               <li>
                                                 Built strategy testing scenarios for bet progression systems
+                                              </li>
+                                              <li>
+                                                Validated statistical behavior across different configurations
                                               </li>
                                               
                                           </ul>
@@ -337,7 +433,7 @@
                                     </div>
                                     
                                       <p class="cv-p">
-                                        Architecture-first implementation focused on predictability and maintainability.
+                                        Architecture-first implementation focused on predictability and performance.
                                       </p>
                                       
                                         
@@ -346,10 +442,13 @@
                                                 Used config-driven design for rapid balancing iteration
                                               </li>
                                               <li>
+                                                Eliminated hidden state to ensure reproducibility
+                                              </li>
+                                              <li>
                                                 Optimized execution flow for batch simulation workloads
                                               </li>
                                               <li>
-                                                Prioritized testability, reproducibility and performance
+                                                Designed system as a reusable core independent from UI
                                               </li>
                                               
                                           </ul>
