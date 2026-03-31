@@ -95,7 +95,7 @@
             </p>
 
             <div class="card-actions">
-              <a class="btn btn-primary" href="<%= item.href %>" target="_blank">Open Web</a>
+              <a class="btn" href="<%= item.href %>" target="_blank">Open Web</a>
 
               <% if (item.pdf) { %>
                 <a class="btn" href="<%= item.pdf %>" target="_blank" rel="noopener">
@@ -135,7 +135,7 @@
 
             <div class="card-actions">
               <% (p.details?.urls || []).forEach((l, index)=> { %>
-                <a class="btn <%= index === 0 ? 'btn-primary' : '' %>" target="demo-<%= p.id %>" href="<%= l.url %>">
+                <a class="btn" target="demo-<%= p.id %>" href="<%= l.url %>">
                   <%= l.title %>
                 </a>
                 <% }) %>
@@ -217,7 +217,7 @@
 
         <div class="modal-actions">
           <% (p.details?.urls || []).forEach((l, index)=> { %>
-            <a class="btn <%= index === 0 ? 'btn-primary' : '' %>" target="demo-<%= p.id %>" href="<%= l.url %>">
+            <a class="btn" target="demo-<%= p.id %>" href="<%= l.url %>">
               <%= l.title %>
             </a>
             <% }) %>
