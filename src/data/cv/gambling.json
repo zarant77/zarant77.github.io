@@ -1,28 +1,32 @@
 {
   "landing": {
     "title": "Gambling Systems CV",
-    "badge": "2023",
-    "text": "Deterministic slot engines, multiplayer architecture, RTP modeling and large-scale simulation systems.",
+    "badge": "2026",
+    "text": "Slot engines, RTP modeling, RNG systems and simulation-driven backend architecture.",
     "href": "cv/gambling.html",
     "pdf": "cv/gambling.pdf"
   },
   "page": {
     "pageTitle": "Anton Zarubin | Gambling Systems CV",
-    "metaDescription": "Deterministic slot engines, multiplayer architecture, RTP modeling, simulation systems and backend performance engineering.",
-    "titleTagline": "Slot Engines · RTP Modeling · Simulation · Deterministic Systems · Multiplayer Architecture",
-    "summary": "Senior Software Engineer focused on deterministic gambling systems, slot engine architecture and simulation-driven balancing. Experience in building reproducible, config-driven game logic systems with real-time multi-client support, RTP/volatility modeling and large-scale simulation tooling. Strong focus on predictability, testability and performance.",
+    "metaDescription": "Slot game logic, RTP modeling, RNG systems, simulation pipelines and backend architecture.",
+    "titleTagline": "Slot Engines · RTP Modeling · RNG · Simulation · Backend Architecture",
+    "summary": "Senior Software Engineer specializing in slot game logic, RTP modeling and deterministic systems.\n\nDesigned and built production-ready slot engines with full control over probability, payout behavior and simulation-driven balancing. Experienced in scalable backend-oriented architectures, high-performance simulation pipelines and reproducible game logic.\n\nStrong expertise in slot mechanics, volatility tuning, RNG systems and real-time multiplayer architectures.",
     "sections": [
       {
         "title": "Core Technologies",
         "type": "tags",
         "items": [
+          "Slot game development",
+          "RNG systems",
+          "Probability systems",
+          "RTP / volatility modeling",
+          "Deterministic systems",
+          "Backend architecture",
           "TypeScript",
           "Node.js",
           "Phaser 3",
-          "Deterministic systems",
           "Game logic architecture",
           "Simulation systems",
-          "RTP / volatility modeling",
           "Config-driven design",
           "CLI tooling",
           "Performance optimization"
@@ -32,13 +36,14 @@
         "title": "Gambling Systems Engineering",
         "type": "bullets",
         "items": [
-          "Design of deterministic slot engines with reproducible outcomes and no hidden state",
-          "Config-driven reels, symbols and payout systems",
-          "RTP and volatility modeling through large-scale simulation",
-          "Real-time multi-client architecture (CLI + Web client)",
-          "Separation of game logic from rendering and UI layers",
-          "Strategy testing systems (bet progression, scenarios)",
-          "Deterministic spin resolution pipeline (bet → spin → outcome → payout)"
+          "Built deterministic slot engines with reproducible outcomes and no hidden state",
+          "Implemented config-driven reels, symbols and payout systems",
+          "Performed RTP and volatility modeling through large-scale simulation",
+          "Designed real-time multi-client architecture (CLI + Web client)",
+          "Separated core game logic from rendering and UI layers",
+          "Implemented full slot lifecycle (bet → spin → outcome → payout)",
+          "Designed probability distribution systems for symbol generation",
+          "Built production-ready architecture focused on scalability and testability"
         ]
       },
       {
@@ -50,18 +55,34 @@
           "Support for multiple RTP/volatility profiles via configuration",
           "Reproducible simulation runs using deterministic RNG",
           "Integration-ready core independent from rendering layer",
-          "Scalable simulation execution (10k–100k+ spins per run)"
+          "Scalable simulation execution (10k–100k+ spins per run)",
+          "Full slot lifecycle: bet handling, spin resolution and payout calculation",
+          "Backend-ready core architecture for integration into game services"
         ]
       },
       {
         "title": "Impact",
         "type": "bullets",
         "items": [
-          "Built a deterministic slot engine structured for reproducible simulation and balancing",
-          "Enabled rapid iteration of reels, payouts and symbol behavior through config-driven design",
-          "Implemented large-scale simulation workflows for RTP and volatility validation",
-          "Designed system architecture supporting multiple clients consuming the same core logic",
-          "Eliminated hidden state to guarantee reproducibility and testability"
+          "Built deterministic slot engine for reproducible simulation and balancing",
+          "Enabled rapid iteration of reels, payouts and symbol behavior",
+          "Implemented large-scale simulation workflows for RTP validation",
+          "Designed multiplayer architecture supporting multiple clients",
+          "Eliminated hidden state to guarantee reproducibility",
+          "Designed systems with production constraints: scalability and stability",
+          "Built backend-oriented core systems ready for service integration"
+        ]
+      },
+      {
+        "title": "Projects",
+        "type": "bullets",
+        "items": [
+          "CatSpin Arena (Live Demo) — https://catspin.catemup.com/",
+          "Live playable deterministic slot prototype",
+          "Real-time multiplayer architecture (CLI + Web)",
+          "Full slot lifecycle: bet → spin → resolve → payout",
+          "RTP / volatility simulation system",
+          "Config-driven slot design"
         ]
       },
       {
@@ -70,9 +91,9 @@
         "jobs": [
           {
             "title": "Gambling Systems Engineer",
-            "meta": "Slot Engine · Simulation · Multiplayer Architecture · Game Logic",
+            "meta": "Slot Game Logic · RTP Modeling · Simulation · Backend Architecture",
             "dates": "Personal / Showcase Project",
-            "text": "Designed and implemented a deterministic multiplayer slot engine with full control over configuration, probability and simulation for balancing, testing and system experimentation.",
+            "text": "Built a deterministic slot engine with full control over configuration, probability and payout behavior.",
             "stack": [
               "TypeScript",
               "Node.js",
@@ -80,49 +101,55 @@
               "Deterministic core",
               "Simulation CLI",
               "Web client",
-              "Config-driven architecture"
+              "RNG systems",
+              "Probability modeling",
+              "Backend-oriented architecture"
             ],
             "links": [],
             "blocks": [
               {
                 "title": "CatSpin Arena — Deterministic Multiplayer Slot Engine",
-                "text": "Multiplayer slot engine built on a deterministic core with reproducible outcomes and no hidden state.",
+                "text": "Live playable slot prototype built on deterministic core.",
                 "items": [
-                  "Implemented deterministic spin logic ensuring reproducible outcomes across all clients",
+                  "Implemented deterministic spin logic across all clients",
                   "Designed real-time multi-client architecture (CLI + Web)",
-                  "Separated core game logic from UI and rendering layers",
-                  "Built config-driven reels, symbols and payout evaluation pipeline"
+                  "Separated core logic from UI and rendering",
+                  "Built config-driven reels and payout pipeline",
+                  "Implemented deterministic RNG for reproducible gameplay",
+                  "Built and deployed live playable prototype"
                 ]
               },
               {
                 "title": "Slot Implementation (Phaser)",
-                "text": "Built multiple slot prototypes using Phaser 3 with reel systems and spin flow logic integrated with deterministic backend.",
+                "text": "Slot prototypes integrated with deterministic backend.",
                 "items": [
-                  "Implemented reel generation and symbol distribution based on config-driven data",
-                  "Built spin lifecycle (bet → spin → resolve → payout)",
+                  "Implemented reel generation based on probability distribution",
+                  "Built full spin lifecycle (bet → spin → resolve → payout)",
                   "Integrated frontend rendering with deterministic engine",
-                  "Designed modular reel and symbol systems for rapid iteration",
-                  "Handled animation timing, easing and visual feedback"
+                  "Designed modular reel system for fast iteration",
+                  "Handled animation timing and visual feedback"
                 ]
               },
               {
                 "title": "Simulation & RTP Modeling",
-                "text": "Simulation tooling for balancing, validation and statistical analysis.",
+                "text": "Simulation systems for balancing and validation.",
                 "items": [
-                  "Developed CLI-based simulation system (10k–100k+ spins per run)",
-                  "Enabled RTP and volatility analysis through deterministic execution",
-                  "Built strategy testing scenarios for bet progression systems",
-                  "Validated statistical behavior across different configurations"
+                  "Developed CLI-based simulation system",
+                  "Ran large-scale simulations (10k–100k+ spins per run)",
+                  "Performed RTP and volatility analysis",
+                  "Built strategy testing scenarios",
+                  "Validated statistical behavior across configurations"
                 ]
               },
               {
                 "title": "Engineering Approach",
-                "text": "Architecture-first implementation focused on predictability and performance.",
+                "text": "Architecture focused on predictability and performance.",
                 "items": [
-                  "Used config-driven design for rapid balancing iteration",
-                  "Eliminated hidden state to ensure reproducibility",
-                  "Optimized execution flow for batch simulation workloads",
-                  "Designed system as a reusable core independent from UI"
+                  "Used config-driven design for rapid balancing",
+                  "Eliminated hidden state for reproducibility",
+                  "Optimized execution for batch simulation workloads",
+                  "Designed reusable core independent from UI",
+                  "Built production-ready systems for backend integration"
                 ]
               }
             ]
