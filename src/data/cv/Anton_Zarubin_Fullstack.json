@@ -1,15 +1,15 @@
 {
   "landing": {
-    "title": "Fullstack (Node.js + React) CV",
+    "title": "Fullstack (Node.js) CV",
     "badge": "10+ yrs",
-    "text": "Backend-leaning fullstack: Node.js/TypeScript services, data modeling, APIs, plus React-based frontend (responsive UI, dashboards, Tailwind CSS).",
-    "order": 2
+    "text": "Backend-leaning fullstack: Node.js/TypeScript services, data modeling, APIs, plus practical frontend work with React, responsive UI and internal dashboards.",
+    "order": 1
   },
   "page": {
-    "pageTitle": "Anton Zarubin | Fullstack (Node.js + React) CV",
-    "metaDescription": "Fullstack CV. Node.js, TypeScript, React, APIs, data modeling, PostgreSQL/MySQL/MongoDB/Redis, Tailwind CSS, responsive UI, dashboards.",
+    "pageTitle": "Anton Zarubin | Fullstack (Node.js) CV",
+    "metaDescription": "Fullstack CV. Node.js, TypeScript, React, APIs, data modeling, MySQL/PostgreSQL/MongoDB/Redis/Couchbase, Tailwind CSS, responsive UI, dashboards.",
     "titleTagline": "Fullstack · Node.js · TypeScript · React · Architecture · Data Systems",
-    "summary": "Software engineer with 20+ years of programming experience and 10+ years of production Node.js development. Designed and implemented backend systems using Node.js and TypeScript, with strong emphasis on modular architecture, data modeling and scalable service design. Experienced in building fullstack applications including React-based frontend (dashboards, internal tools) with modern CSS approaches such as Tailwind. Strong focus on maintainability, performance and clean system design. Comfortable taking ownership of technical decisions and building systems end-to-end.",
+    "summary": "Software engineer with 20+ years of programming experience and 10+ years of production Node.js development (since early 0.10 versions). Designed and implemented backend systems using Node.js and TypeScript, with strong emphasis on modular architecture, data modeling and maintainable service design. Experienced in evolving legacy systems and modernizing architecture across different stages of the JavaScript ecosystem. Also worked on practical frontend development, including internal dashboards, responsive UI and frontend-backend integration.",
     "sections": [
       {
         "title": "Core Technologies",
@@ -53,13 +53,13 @@
         "title": "Fullstack Scope",
         "type": "bullets",
         "items": [
-          "Built React-based dashboards and internal tools for operational workflows",
-          "Implemented responsive UI using modern CSS approaches (Tailwind, component-based styling)",
-          "Designed clean and maintainable UI structure with focus on usability",
-          "Integrated frontend apps with REST APIs, authentication and session flows",
-          "Worked with browser APIs, validation logic and client-side state handling",
-          "Optimized performance both on backend and in browser runtime",
-          "Experience building SaaS-like internal tools and data-driven dashboards"
+          "Built internal dashboards and management interfaces for operational workflows",
+          "Implemented responsive layouts with modern CSS and practical UX-focused UI structure",
+          "Worked with browser APIs, client-side validation and integration logic",
+          "Integrated frontend apps with REST backends and authentication/session flows",
+          "Optimized page load and runtime performance in browser environments",
+          "Used React in internal tools, frontend integration and building practical UI components",
+          "Used Tailwind CSS for building responsive and maintainable internal UI"
         ]
       },
       {
@@ -84,35 +84,36 @@
               "React",
               "HTML",
               "CSS",
-              "Tailwind"
+              "Tailwind CSS"
             ],
             "blocks": [
               {
-                "title": "Email Campaign System (Mailchimp-like)",
+                "title": "Email Campaign Platform (Mailchimp-like)",
                 "items": [
                   "Designed and implemented system architecture for email campaign management",
                   "Built campaign scheduling and configuration logic",
                   "Implemented subscriber management and segmentation rules",
                   "Designed data storage and indexing strategies for large contact datasets",
-                  "Developed internal dashboards and tools for configuration and monitoring"
+                  "Developed internal tools and dashboards for configuration and monitoring"
                 ]
               },
               {
                 "title": "Backend & Data Systems",
                 "items": [
                   "Designed REST APIs and service layers with clean separation of concerns",
-                  "Implemented contract-driven APIs using OpenAPI specifications",
+                  "Implemented modular architecture patterns for long-term maintainability",
+                  "Implemented API documentation and contract definition using OpenAPI specifications",
                   "Optimized database queries and indexing strategies",
-                  "Built modular architecture patterns for long-term maintainability",
-                  "Developed internal automation tools to streamline workflows"
+                  "Built internal automation tools to streamline development and operations"
                 ]
               },
               {
                 "title": "Frontend Interfaces",
                 "items": [
-                  "Built React-based responsive UI for internal management workflows",
+                  "Built responsive UI for internal management workflows",
+                  "Used React in internal tools, frontend integration and building practical UI components",
                   "Implemented reusable UI components and consistent styling approach",
-                  "Used Tailwind CSS for fast and maintainable UI development",
+                  "Used Tailwind CSS for building responsive and maintainable internal UI",
                   "Integrated frontend with backend APIs and validation logic"
                 ]
               }
@@ -128,8 +129,7 @@
           "Deep understanding of relational and NoSQL data modeling",
           "Ability to translate business requirements into scalable technical solutions",
           "Focus on maintainability, clarity and clean structure (both backend and UI)",
-          "Comfortable taking ownership of technical decisions end-to-end",
-          "Performance-oriented mindset and experience optimizing systems under load"
+          "Comfortable taking ownership of technical decisions end-to-end"
         ]
       }
     ]

@@ -3,8 +3,7 @@
     "title": "Gambling Systems CV",
     "badge": "2026",
     "text": "Slot engines, RTP modeling, RNG systems and simulation-driven backend architecture.",
-    "href": "cv/gambling.html",
-    "pdf": "cv/gambling.pdf"
+    "order": 2
   },
   "page": {
     "pageTitle": "Anton Zarubin | Gambling Systems CV",
