@@ -1,15 +1,15 @@
 {
   "landing": {
-    "title": "Fullstack (Node.js) CV",
+    "title": "Fullstack (Node.js + React) CV",
     "badge": "10+ yrs",
-    "text": "Backend-leaning fullstack: Node.js/TypeScript services, data modeling, APIs, plus practical frontend work (responsive UI, internal dashboards).",
+    "text": "Backend-leaning fullstack: Node.js/TypeScript services, data modeling, APIs, plus React-based frontend (responsive UI, dashboards, Tailwind CSS).",
     "order": 2
   },
   "page": {
-    "pageTitle": "Anton Zarubin | Fullstack (Node.js) CV",
-    "metaDescription": "Fullstack CV. Node.js, TypeScript, APIs, data modeling, MySQL/PostgreSQL/MongoDB/Redis/Couchbase, plus practical frontend (HTML/CSS, responsive UI, dashboards).",
-    "titleTagline": "Fullstack · Node.js · TypeScript · Architecture · Data Systems",
-    "summary": "Software engineer with 20+ years of programming experience and 10+ years of production Node.js development (since early 0.10 versions). Designed and implemented backend systems using Node.js and TypeScript, with strong emphasis on modular architecture, data modeling and maintainable service design. Experienced in evolving legacy systems and modernizing architecture across different stages of the JavaScript ecosystem.",
+    "pageTitle": "Anton Zarubin | Fullstack (Node.js + React) CV",
+    "metaDescription": "Fullstack CV. Node.js, TypeScript, React, APIs, data modeling, PostgreSQL/MySQL/MongoDB/Redis, Tailwind CSS, responsive UI, dashboards.",
+    "titleTagline": "Fullstack · Node.js · TypeScript · React · Architecture · Data Systems",
+    "summary": "Software engineer with 20+ years of programming experience and 10+ years of production Node.js development. Designed and implemented backend systems using Node.js and TypeScript, with strong emphasis on modular architecture, data modeling and scalable service design. Experienced in building fullstack applications including React-based frontend (dashboards, internal tools) with modern CSS approaches such as Tailwind. Strong focus on maintainability, performance and clean system design. Comfortable taking ownership of technical decisions and building systems end-to-end.",
     "sections": [
       {
         "title": "Core Technologies",
@@ -18,7 +18,9 @@
           "Node.js",
           "TypeScript",
           "JavaScript (ES6+)",
+          "React",
           "REST APIs",
+          "OpenAPI (Swagger)",
           "System architecture",
           "MySQL",
           "PostgreSQL",
@@ -27,6 +29,7 @@
           "Couchbase",
           "HTML5",
           "CSS3",
+          "Tailwind CSS",
           "Responsive layout",
           "Browser APIs",
           "Docker",
@@ -40,6 +43,7 @@
         "items": [
           "Design of modular architectures with clear separation of concerns",
           "API design and contract-driven development",
+          "API documentation and contract definition using OpenAPI (Swagger)",
           "Database schema design and data modeling (SQL + NoSQL)",
           "Designing systems from scratch based on business requirements",
           "Technical decision making and architectural ownership"
@@ -49,11 +53,13 @@
         "title": "Fullstack Scope",
         "type": "bullets",
         "items": [
-          "Built internal dashboards and management interfaces for operational workflows",
-          "Implemented responsive layouts with modern CSS and practical UX-focused UI structure",
-          "Worked with browser APIs, client-side validation and integration logic",
-          "Integrated frontend apps with REST backends and authentication/session flows",
-          "Optimized page load and runtime performance in browser environments"
+          "Built React-based dashboards and internal tools for operational workflows",
+          "Implemented responsive UI using modern CSS approaches (Tailwind, component-based styling)",
+          "Designed clean and maintainable UI structure with focus on usability",
+          "Integrated frontend apps with REST APIs, authentication and session flows",
+          "Worked with browser APIs, validation logic and client-side state handling",
+          "Optimized performance both on backend and in browser runtime",
+          "Experience building SaaS-like internal tools and data-driven dashboards"
         ]
       },
       {
@@ -69,13 +75,16 @@
               "Node.js",
               "TypeScript",
               "REST",
+              "OpenAPI",
               "MySQL",
               "PostgreSQL",
               "MongoDB",
               "Redis",
               "Couchbase",
+              "React",
               "HTML",
-              "CSS"
+              "CSS",
+              "Tailwind"
             ],
             "blocks": [
               {
@@ -85,23 +94,25 @@
                   "Built campaign scheduling and configuration logic",
                   "Implemented subscriber management and segmentation rules",
                   "Designed data storage and indexing strategies for large contact datasets",
-                  "Developed internal tools and dashboards for configuration and monitoring"
+                  "Developed internal dashboards and tools for configuration and monitoring"
                 ]
               },
               {
                 "title": "Backend & Data Systems",
                 "items": [
                   "Designed REST APIs and service layers with clean separation of concerns",
-                  "Implemented modular architecture patterns for long-term maintainability",
+                  "Implemented contract-driven APIs using OpenAPI specifications",
                   "Optimized database queries and indexing strategies",
-                  "Built internal automation tools to streamline development and operations"
+                  "Built modular architecture patterns for long-term maintainability",
+                  "Developed internal automation tools to streamline workflows"
                 ]
               },
               {
                 "title": "Frontend Interfaces",
                 "items": [
-                  "Built responsive UI for internal management workflows",
+                  "Built React-based responsive UI for internal management workflows",
                   "Implemented reusable UI components and consistent styling approach",
+                  "Used Tailwind CSS for fast and maintainable UI development",
                   "Integrated frontend with backend APIs and validation logic"
                 ]
               }
@@ -117,7 +128,8 @@
           "Deep understanding of relational and NoSQL data modeling",
           "Ability to translate business requirements into scalable technical solutions",
           "Focus on maintainability, clarity and clean structure (both backend and UI)",
-          "Comfortable taking ownership of technical decisions end-to-end"
+          "Comfortable taking ownership of technical decisions end-to-end",
+          "Performance-oriented mindset and experience optimizing systems under load"
         ]
       }
     ]
