@@ -41,34 +41,38 @@
     }
   },
   {
-    "id": "catemup",
-    "name": "Cat ’Em Up",
-    "subtitle": "Arcade beat ’em up · multi-client rendering architecture",
-    "logo": "demos/cat-em-up/logo.png",
-    "demo": "https://catemup.com/",
-    "description": "Arcade beat ’em up built on a deterministic game core with multi-client rendering and clean system architecture.",
+    "id": "smashing-cats",
+    "name": "Smash!ng Cats",
+    "subtitle": "Arcade runner · server-authoritative multiplayer architecture",
+    "logo": "demos/smashing-cats/logo.png",
+    "demo": "https://smashingcats.com/",
+    "description": "Arcade cat runner built on a deterministic server-authoritative core with multiplayer netcode and multiple rendering clients.",
     "details": {
-      "intro": "A high-energy side-scrolling beat ’em up inspired by classic arcade machines and 80s neon culture. Players fight through fast-paced encounters driven by timing, positioning and impact, with a strong focus on clarity and responsiveness. Under the hood, the game is powered by a deterministic engine with decoupled rendering, demonstrating clean and reusable game system architecture.",
+      "intro": "Smash!ng Cats is a fast arcade cat runner with jumping, smashing, enemies, civilians and chaotic score-driven action. The game is built around a deterministic server-authoritative core, with rendering fully separated from gameplay logic so different clients can visualize the same game state.",
       "highlights": [
-        "Deterministic game core (30Hz)",
-        "Snapshot + events rendering model",
-        "Multiple clients: Phaser (2D), Three.js (3D), CLI",
-        "Rendering fully decoupled from game logic"
+        "Server-authoritative multiplayer gameplay",
+        "Deterministic fixed-timestep game core",
+        "Snapshot + delta synchronization",
+        "Client prediction and interpolation",
+        "Multiple renderers: Canvas, Phaser, Three.js",
+        "Shared protocol and reusable game packages"
       ],
       "tech": [
         "TypeScript",
-        "Phaser / Three.js",
-        "Engine-agnostic architecture",
-        "Performance-oriented update loop"
+        "Node.js / WebSocket server",
+        "Multiclient: Canvas / Phaser / Three.js / CLI",
+        "Deterministic simulation",
+        "Monorepo architecture",
+        "Shared modules"
       ],
       "urls": [
         {
-          "title": "Project Page",
-          "url": "https://catemup.com/"
+          "title": "Play Smash!ng Cats",
+          "url": "https://smash.catemup.com/"
         },
         {
           "title": "View GitHub",
-          "url": "https://github.com/cat-em-up/cat-em-up"
+          "url": "https://github.com/zarant77/smashing-cats"
         }
       ]
     }
@@ -89,12 +93,7 @@
         "Large-scale simulation (thousands of spins)",
         "Strategy testing system (bet progression, scenarios)"
       ],
-      "tech": [
-        "TypeScript",
-        "Deterministic core architecture",
-        "Simulation CLI + Web client",
-        "Performance-oriented execution"
-      ],
+      "tech": ["TypeScript", "Deterministic core architecture", "Simulation CLI + Web client", "Performance-oriented execution"],
       "urls": [
         {
           "title": "Play Demo",
@@ -116,16 +115,8 @@
     "description": "System-driven Unity puzzle game built around scalable progression, economy and live mechanics.",
     "details": {
       "intro": "Puzzle game built around modular systems: progression, economy, daily tasks and scalable content flow.",
-      "highlights": [
-        "Progression and economy systems",
-        "Daily tasks and live mechanics",
-        "Modular, maintainable architecture"
-      ],
-      "tech": [
-        "Unity 6",
-        "ScriptableObject-driven data",
-        "Performance & UX polish"
-      ],
+      "highlights": ["Progression and economy systems", "Daily tasks and live mechanics", "Modular, maintainable architecture"],
+      "tech": ["Unity 6", "ScriptableObject-driven data", "Performance & UX polish"],
       "urls": [
         {
           "title": "Open on Google Play",

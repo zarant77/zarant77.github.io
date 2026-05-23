@@ -63,16 +63,8 @@ a {
 .header {
   border-bottom: 1px solid var(--line);
   background:
-    radial-gradient(
-      1200px 500px at 10% 0%,
-      rgba(233, 236, 241, 0.1),
-      transparent 62%
-    ),
-    radial-gradient(
-      900px 400px at 90% 10%,
-      rgba(233, 236, 241, 0.06),
-      transparent 55%
-    );
+    radial-gradient(1200px 500px at 10% 0%, rgba(233, 236, 241, 0.1), transparent 62%),
+    radial-gradient(900px 400px at 90% 10%, rgba(233, 236, 241, 0.06), transparent 55%);
 }
 
 .header-inner {
@@ -270,14 +262,14 @@ a {
 
 .project-card .project-top {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   margin-bottom: 10px;
 }
 
 .project-logo {
-  width: 64px;
-  height: 64px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
   border-radius: 12px;
   border: 1px solid var(--line);
@@ -517,16 +509,8 @@ a {
 
   .header {
     background:
-      radial-gradient(
-        1200px 500px at 10% 0%,
-        rgba(14, 17, 22, 0.06),
-        transparent 62%
-      ),
-      radial-gradient(
-        900px 400px at 90% 10%,
-        rgba(14, 17, 22, 0.04),
-        transparent 55%
-      );
+      radial-gradient(1200px 500px at 10% 0%, rgba(14, 17, 22, 0.06), transparent 62%),
+      radial-gradient(900px 400px at 90% 10%, rgba(14, 17, 22, 0.04), transparent 55%);
   }
 
   .footer {

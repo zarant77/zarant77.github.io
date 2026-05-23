@@ -218,34 +218,34 @@
           
           <article class="card project-card">
             <div class="project-top">
-              <img class="project-logo" src="demos/cat-em-up/logo.png" alt="Cat ’Em Up logo" loading="lazy">
+              <img class="project-logo" src="demos/smashing-cats/logo.png" alt="Smash!ng Cats logo" loading="lazy">
 
               <div class="project-meta">
                 <h3 class="card-title">
-                  Cat ’Em Up
+                  Smash!ng Cats
                 </h3>
                 <p class="muted">
-                  Arcade beat ’em up · multi-client rendering architecture
+                  Arcade runner · server-authoritative multiplayer architecture
                 </p>
               </div>
             </div>
 
             <p class="card-text">
-              Arcade beat ’em up built on a deterministic game core with multi-client rendering and clean system architecture.
+              Arcade cat runner built on a deterministic server-authoritative core with multiplayer netcode and multiple rendering clients.
             </p>
 
             <div class="card-actions">
               
-                <a class="btn" target="demo-catemup" href="https://catemup.com/">
-                  Project Page
+                <a class="btn" target="demo-smashing-cats" href="https://smash.catemup.com/">
+                  Play Smash!ng Cats
                 </a>
                 
-                <a class="btn" target="demo-catemup" href="https://github.com/cat-em-up/cat-em-up">
+                <a class="btn" target="demo-smashing-cats" href="https://github.com/zarant77/smashing-cats">
                   View GitHub
                 </a>
                 
 
-                  <a class="btn btn-ghost btn-details" href="#modal-catemup" data-modal-open="catemup">
+                  <a class="btn btn-ghost btn-details" href="#modal-smashing-cats" data-modal-open="smashing-cats">
                     Details
                   </a>
             </div>
@@ -458,23 +458,23 @@
       </div>
     </div>
     
-    <div class="modal" id="modal-catemup" hidden>
+    <div class="modal" id="modal-smashing-cats" hidden>
       <div class="modal-backdrop" data-modal-close></div>
 
       <div class="modal-panel">
         <div class="modal-head">
           <h3 class="modal-title">
-            Cat ’Em Up
+            Smash!ng Cats
           </h3>
           <a class="modal-close" href="#" data-modal-close aria-label="Close">×</a>
         </div>
 
         <div class="modal-body">
           <div class="modal-intro">
-            <img class="modal-logo" src="demos/cat-em-up/logo.png" alt="Cat ’Em Up logo" loading="lazy">
+            <img class="modal-logo" src="demos/smashing-cats/logo.png" alt="Smash!ng Cats logo" loading="lazy">
 
             <p class="muted">
-              A high-energy side-scrolling beat ’em up inspired by classic arcade machines and 80s neon culture. Players fight through fast-paced encounters driven by timing, positioning and impact, with a strong focus on clarity and responsiveness. Under the hood, the game is powered by a deterministic engine with decoupled rendering, demonstrating clean and reusable game system architecture.
+              Smash!ng Cats is a fast arcade cat runner with jumping, smashing, enemies, civilians and chaotic score-driven action. The game is built around a deterministic server-authoritative core, with rendering fully separated from gameplay logic so different clients can visualize the same game state.
             </p>
           </div>
 
@@ -484,19 +484,27 @@
               <ul class="modal-list">
                 
                   <li>
-                    Deterministic game core (30Hz)
+                    Server-authoritative multiplayer gameplay
                   </li>
                   
                   <li>
-                    Snapshot + events rendering model
+                    Deterministic fixed-timestep game core
                   </li>
                   
                   <li>
-                    Multiple clients: Phaser (2D), Three.js (3D), CLI
+                    Snapshot + delta synchronization
                   </li>
                   
                   <li>
-                    Rendering fully decoupled from game logic
+                    Client prediction and interpolation
+                  </li>
+                  
+                  <li>
+                    Multiple renderers: Canvas, Phaser, Three.js
+                  </li>
+                  
+                  <li>
+                    Shared protocol and reusable game packages
                   </li>
                   
               </ul>
@@ -511,15 +519,23 @@
                   </li>
                   
                   <li>
-                    Phaser / Three.js
+                    Node.js / WebSocket server
                   </li>
                   
                   <li>
-                    Engine-agnostic architecture
+                    Multiclient: Canvas / Phaser / Three.js / CLI
                   </li>
                   
                   <li>
-                    Performance-oriented update loop
+                    Deterministic simulation
+                  </li>
+                  
+                  <li>
+                    Monorepo architecture
+                  </li>
+                  
+                  <li>
+                    Shared modules
                   </li>
                   
               </ul>
@@ -529,11 +545,11 @@
 
         <div class="modal-actions">
           
-            <a class="btn" target="demo-catemup" href="https://catemup.com/">
-              Project Page
+            <a class="btn" target="demo-smashing-cats" href="https://smash.catemup.com/">
+              Play Smash!ng Cats
             </a>
             
-            <a class="btn" target="demo-catemup" href="https://github.com/cat-em-up/cat-em-up">
+            <a class="btn" target="demo-smashing-cats" href="https://github.com/zarant77/smashing-cats">
               View GitHub
             </a>
             
