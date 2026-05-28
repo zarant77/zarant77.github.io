@@ -202,6 +202,7 @@ async function main() {
   // Copy static assets & demos
   await copyDir(p("src-static", "assets"), out("assets"));
   await copyDir(p("src-static", "demos"), out("demos"));
+  await copyDir(p("src-static", "legal"), out("legal"));
 
   // Copy old CVs (temporary migration step)
   await copyDir(src("templates", "cv-old"), out("cv"));
